@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73493b7c0f3ecb743af8a26a1bae3fe7, type: 3}
+  m_Name: InputActionMapWrapper.SpecialInterractions
+  m_EditorClassIdentifier: 
+  _actionMap:
+    m_Name: Action Map
+    m_Id: aa81cc21-da78-4250-8264-05282620b256
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: AbilityImproverInteraction
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 843fd8e5-2428-4750-bc4c-17eef95dc353
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: 5e738f3b-1bf3-4f35-899c-d3944a4d9367
+      m_Path: <Keyboard>/e
+      m_Interactions: Press
+      m_Processors: Normalize
+      m_Groups: 
+      m_Action: AbilityImproverInteraction
+      m_Flags: 0
