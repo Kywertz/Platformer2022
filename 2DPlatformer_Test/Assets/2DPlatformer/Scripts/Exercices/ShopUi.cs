@@ -7,7 +7,7 @@ namespace GSGD2.Gameplay
     using UnityEngine.InputSystem;
     using GSGD2.Extensions;
     using TMPro;
-    public class ShopUi : MonoBehaviour
+    public class ShopUi : MonoBehaviour, ICommandSender
     {
         [SerializeField]
         private InputActionMapWrapper _inputActionmap = null;
@@ -18,21 +18,27 @@ namespace GSGD2.Gameplay
         private GameObject _text = null;
         [SerializeField]
         private PickupCommand _pickupCommand = null;
-        public void TryAddJumpForce(int force)
-        {
-            LevelReferences.Instance.LootManager.RemoveLoot(force);
-            bool okay = true;
-            if (okay == true)
-            {
-                Pickup(); 
-            }
-            //LevelReferences.Instance.Player.AddMaximumAllowedForceToJump(force);
+        [SerializeField]
+        private LootHUD _loothud = null;
 
+        public void TryAddJumpForce(int removedloot)
+        {
+            //verifier si le loot n'est pas égale à zéro ou est au dessus de la valeure demander par le shop avant d'apply
+            if(LevelReferences.Instance.LootManager.CurrentLoot >= removedloot)
+            {
+                LevelReferences.Instance.LootManager.RemoveLoot(removedloot);
+                Pickup();
+
+            }
+            else
+            {
+                Debug.Log("YOU CANT DO THIS TRADE");
+            }
         }
 
-        public  void Pickup()
+        private  void Pickup()
         {
-            //_pickupCommand.Apply(this);
+            _pickupCommand.Apply(this);
         }
       
 
@@ -70,6 +76,8 @@ namespace GSGD2.Gameplay
             _shop.SetActive(true);
             _text.SetActive(false);
         }
+        GameObject ICommandSender.GetGameObject() => gameObject;
+
     }
 
 

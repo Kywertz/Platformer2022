@@ -10,6 +10,7 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private TextMeshProUGUI _text = null;
 
+
         private void OnEnable()
         {
             var lootManager = LevelReferences.Instance.LootManager;
@@ -35,6 +36,8 @@ namespace GSGD2.Gameplay
         private void UpdateValues(int loot)
         {
             _text.text = loot.ToString();
+            Debug.Log(loot);
+            
         }
     }
 }
