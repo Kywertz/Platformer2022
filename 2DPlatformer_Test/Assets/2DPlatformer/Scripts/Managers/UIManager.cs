@@ -12,9 +12,13 @@ namespace GSGD2.UI
 		[SerializeField]
 		private Canvas _mainCanvas = null;
 
+
 		[SerializeField]
 		private PlayerHUDMenu _playerHUD = null;
 
+		[SerializeField]
+		private GameObject _PauseHud = null;
+		
 		public Canvas MainCanvas => _mainCanvas;
 		public PlayerHUDMenu PlayerHUD => _playerHUD;
 
@@ -22,5 +26,7 @@ namespace GSGD2.UI
 		{
 			_playerHUD.SetActive(isActive);
 		}
+      
+
 	}
 }

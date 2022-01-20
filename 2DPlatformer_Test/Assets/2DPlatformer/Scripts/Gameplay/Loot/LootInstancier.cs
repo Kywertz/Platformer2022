@@ -13,9 +13,12 @@ namespace GSGD2.Gameplay
         // Simplified command for UnityEvent
         public void DoInstantiateLoot() => InstantiateLoot();
 
+        [SerializeField]
+        private Transform _transform = null;
+
         public PickupInteractor InstantiateLoot()
         {
-            return GameObject.Instantiate(_lootPickup, transform.position, transform.rotation);
+            return GameObject.Instantiate(_lootPickup, _transform.position, _transform.rotation);
         }
     }
 }
