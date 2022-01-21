@@ -8,7 +8,7 @@ namespace GSGD2.Gameplay
     public class LootManager : MonoBehaviour
     {
         private int _currentLoot = 0;
-
+        public int _lootmultiplier = 1;
         public int CurrentLoot => _currentLoot;
 
         public delegate void LootManagerEvent(LootManager sender, int currentLoot);
@@ -16,7 +16,7 @@ namespace GSGD2.Gameplay
 
         public void AddLoot(int value)
         {
-            _currentLoot += value;
+            _currentLoot += value * _lootmultiplier;
 
             LootAdded?.Invoke(this, _currentLoot);
         }
@@ -30,5 +30,12 @@ namespace GSGD2.Gameplay
                 
             }
         }
+
+        //public void MultiplicateLoot(int value)
+        //{
+        //    //value = _currentLoot * 2;
+        //    //LootAdded?.Invoke(this, value);
+        //    AddLoot(_currentLoot = value * 2);
+        //}
     }
 }
