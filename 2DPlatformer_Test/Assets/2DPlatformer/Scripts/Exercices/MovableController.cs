@@ -69,6 +69,8 @@ namespace GSGD2.Player
                 _currentmovable.transform.position += _playercontroller.HorizontalMove * Time.deltaTime * transform.forward;
                 Debug.Log("Deplacement");
             }
+
+
             //On Push
             //if (_playercontroller.transform.forward == _currentmovable.transform.forward)
             //{

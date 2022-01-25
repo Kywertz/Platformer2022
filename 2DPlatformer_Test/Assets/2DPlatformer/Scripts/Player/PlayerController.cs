@@ -57,6 +57,7 @@ namespace GSGD2.Player
 		public event InputEvent UseItemPerformed = null;
 		public event InputEvent GroundSmashPerformed = null;
 		public event InputEvent PushPullPerformed = null;
+		public event InputEvent BasicAttackPerformed = null;
 		private void OnEnable()
 		{
 			_inputActionMapWrapper.TryFindAction(HORIZONTAL_MOVE_ACTION_NAME, out _horizontalMoveInputAction, true);
@@ -181,5 +182,11 @@ namespace GSGD2.Player
         {
 			PushPullPerformed?.Invoke(this, obj);
         }
+
+		private void BasicAttack_performed(InputAction.CallbackContext obj)
+        {
+			BasicAttackPerformed?.Invoke(this, obj);
+		}
 	}
+	
 }
