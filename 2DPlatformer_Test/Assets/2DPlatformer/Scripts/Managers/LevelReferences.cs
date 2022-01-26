@@ -22,6 +22,9 @@ namespace GSGD2
 		private CubeController _player = null;
 
 		[SerializeField]
+		private SpellManager _spellmanager = null;
+
+		[SerializeField]
 		private Camera _mainCamera = null;
 
 		[SerializeField]
@@ -39,6 +42,7 @@ namespace GSGD2
 		[SerializeField]
 		private LootManager _lootManager = null;
 
+		public SpellManager SpellManager => _spellmanager;
 		public PlayerReferences PlayerReferences => _playerReferences;
 		public CubeController Player => _player;
 		public PlayerStart PlayerStart => _playerStart;

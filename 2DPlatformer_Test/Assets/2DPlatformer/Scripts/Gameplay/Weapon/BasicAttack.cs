@@ -20,11 +20,11 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private float _bigfloat = 2f;
 
-        [SerializeField]
-        private InteractWithDamageable _projectileInteractWith = 0f;
+        //[SerializeField]
+        //private InteractWithDamageable _projectileInteractWith = 0f;
 
-        [SerializeField]
-        private InteractWithDamageable _damageDealerInteractWith = 0f;
+        //[SerializeField]
+        //private InteractWithDamageable _damageDealerInteractWith = 0f;
 
         private InputAction _inputaction = null;
 
@@ -33,8 +33,8 @@ namespace GSGD2.Gameplay
 
         private bool _starttimer = false;
 
-        [SerializeField]
-        private PlayerController _playerController = null;
+        //[SerializeField]
+        //private PlayerController _playerController = null;
 
         //[SerializeField]
         //private float _force = 1f;

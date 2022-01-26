@@ -67,6 +67,7 @@ namespace GSGD2.Gameplay
 				LevelReferences.Instance.PlayerStart.UpdateLastCheckpoint(this);
 				_checkpointTriggered.Invoke(this, _hasBeenTriggeredYet == true ? EventType.CheckpointPassed : EventType.FirstTimeReachedCheckpoint);
 				_hasBeenTriggeredYet = true;
+				LevelReferences.Instance.SpellManager.ReloadSpells();
 			}
 		}
 

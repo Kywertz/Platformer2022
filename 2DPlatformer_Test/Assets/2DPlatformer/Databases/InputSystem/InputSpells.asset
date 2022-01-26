@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73493b7c0f3ecb743af8a26a1bae3fe7, type: 3}
+  m_Name: InputSpells
+  m_EditorClassIdentifier: 
+  _actionMap:
+    m_Name: Action Map
+    m_Id: e5ddefb7-7277-4ef1-b87d-c2dc89050e4b
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: RatTrapSpell
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: e62eaf36-466b-494f-a468-1e48ec273e5b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: WallRatSpell
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: f7bc7be1-a0ff-4333-b58c-86e4a4e43b47
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: 0ba5e1b4-1118-4a5f-96a7-153f043b6099
+      m_Path: <Keyboard>/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: RatTrapSpell
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 90ab6a7e-9d80-4ac7-936a-0454dfa61b35
+      m_Path: <Keyboard>/g
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: WallRatSpell
+      m_Flags: 0
