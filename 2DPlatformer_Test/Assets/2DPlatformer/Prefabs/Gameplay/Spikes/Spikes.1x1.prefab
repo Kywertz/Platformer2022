@@ -52,8 +52,7 @@ MonoBehaviour:
     _damageValue: 1
     _bump:
       enabled: 1
-      _maximumAllowedForcesWhileInAir: 1
-      resetVelocityWhenApplyingForceWhileInAir: 1
+      _maximumAllowedForces: 1
       cubeController: {fileID: 0}
       displacementEstimationUpdater: {fileID: 0}
       _gravityScale: 5
@@ -66,8 +65,7 @@ MonoBehaviour:
     _damageValue: 1
     _bump:
       enabled: 1
-      _maximumAllowedForcesWhileInAir: 1
-      resetVelocityWhenApplyingForceWhileInAir: 1
+      _maximumAllowedForces: 1
       cubeController: {fileID: 0}
       displacementEstimationUpdater: {fileID: 0}
       _gravityScale: 5
