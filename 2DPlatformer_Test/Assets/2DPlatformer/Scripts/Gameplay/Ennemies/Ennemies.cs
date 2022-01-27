@@ -8,8 +8,6 @@ namespace GSGD2.Gameplay
     public class Ennemies : MonoBehaviour
     {
 
- 
-
         [SerializeField]
         private Transform fromTransform = null;
 
@@ -17,7 +15,13 @@ namespace GSGD2.Gameplay
         private LayerMask _layer;
 
         [SerializeField]
-        private float _radius = 10f;
+        private LayerMask _walllayer;
+
+        private bool _seeplayer = false;
+
+        [SerializeField]
+        private float _radius = 2f;
+
 
 
         [SerializeField]
@@ -33,46 +37,86 @@ namespace GSGD2.Gameplay
 
         private void Update()
         {
-            //Raycast();
+
             if (_canmove == true)
             {
                 EnnemieMove();
 
             }
 
-            //if (_charactercollision.HasAWallInFrontOfCharacter && _charactercollision.HasAWallNearCharacter == true)
-            //{
-            //    Debug.Log("WallInFront");
-            //    transform.rotation = Quaternion.Euler(0, 180, 0);
-            //}
-
-            //if (/*leraycast voit le player alors il get sa position et se dirige vers lui*/true)
-            //{
-            //    transform.position += (LevelReferences.Instance.Player.transform.position - transform.position).normalized * _speed * Time.deltaTime;
-            //}
-
-
             RaycastHit hit;
-            
-           if(Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, _maxDistance, _layer))
-           {
-                _canmove = false;
+
+            // On verifie si le joueur est devant si il est devant go vers lui
+            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, _maxDistance, _layer))
+            {
+
                 Debug.Log(hit.transform.name);
-                if(ReferenceEquals( hit.transform , LevelReferences.Instance.Player.transform))
+
+                if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                 {
+                    _canmove = false;
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
                     Vector3 direction = LevelReferences.Instance.Player.transform.position - transform.position;
                     direction.x = 0;
                     direction.y = 0;
                     transform.position += (direction).normalized * _speed * Time.deltaTime;
-                    //transform.rotation = ;
+
                 }
-                //else
-                //{
-                //    transform.rotation = Quaternion.Euler(0, 180, 0);
-                //}
-                
-           }
-            
+                else
+                {
+                    _canmove = true;
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+
+
+
+
+
+
+            }
+            // On verifie si le joueur est derr si il est derr se retourne et go vers lui
+            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward * -1, out hit, _maxDistance, _layer))
+            {
+
+
+
+                Debug.Log(hit.transform.name);
+
+                if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
+                {
+                    _canmove = false;
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    Vector3 direction = LevelReferences.Instance.Player.transform.position - transform.position;
+                    direction.x = 0;
+                    direction.y = 0;
+                    transform.position += (direction).normalized * _speed * Time.deltaTime;
+                    _seeplayer = true;
+
+                }
+                else
+                {
+                    _seeplayer = false;
+                    _canmove = true;
+                    if (_seeplayer == false)
+                    {
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
+
+                    if (_seeplayer == true)
+                    {
+                        transform.rotation = Quaternion.Euler(0, 180, 0);
+                    }
+                }
+
+
+
+            }
+
+            //if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, _maxDistance, _walllayer))
+            //{
+            //    transform.rotation = Quaternion.Euler(0, 180, 0);
+            //    transform.position += transform.forward * Time.deltaTime * _speed;
+            //}
         }
 
 
@@ -86,10 +130,10 @@ namespace GSGD2.Gameplay
 
         private void EnnemieMove()
         {
-            transform.position += (Physics.gravity * gravityscale +transform.forward) * Time.deltaTime * _speed;
+            transform.position += /*(Physics.gravity * gravityscale +*/ transform.forward * Time.deltaTime * _speed;
         }
 
     }
 
-    
+
 }

@@ -8,17 +8,17 @@ namespace GSGD2.Player
 
     public class MovableController : MonoBehaviour
     {
-        [SerializeField]
-        private Rigidbody _rigidbody = null;
+        //[SerializeField]
+        //private Rigidbody _rigidbody = null;
 
-        private GameObject _objecttomove = null;
+        //private GameObject _objecttomove = null;
 
-        [SerializeField]
-        private CubeController _cubecontroller = null;
+        //[SerializeField]
+        //private CubeController _cubecontroller = null;
 
         private InputAction _grabability = null;
 
-        private bool _canstartmove = false;
+        private bool _canstartmove = true;
        
         private Movable _currentmovable = null;
 
@@ -66,7 +66,7 @@ namespace GSGD2.Player
             {
                 //_currentmovable = HorizontalMove;
                 //_currentmovable = _playercontroller.HorizontalMove;
-                _currentmovable.transform.position += _playercontroller.HorizontalMove * Time.deltaTime * transform.forward;
+                _currentmovable.transform.position += _playercontroller.HorizontalMove * Time.deltaTime * transform.forward * _pushpullforce;
                 Debug.Log("Deplacement");
             }
 
@@ -90,6 +90,7 @@ namespace GSGD2.Player
             //je sait pas quoi mettre ici mais faut activer d'une certaine maniere ici klk chose
             //_currentmovable._canmove = true;
             _canstartmove = true;
+            Debug.Log("PushPullPerformed");
         }
 
         public void Add(Movable movable)

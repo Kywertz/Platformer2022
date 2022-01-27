@@ -13,22 +13,22 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            _physicsTriggerEvent._onTriggerEnter.RemoveListener(OnTriggerMoveEnter);
-            _physicsTriggerEvent._onTriggerEnter.AddListener(OnTriggerMoveEnter);
+            _physicsTriggerEvent._onTriggerStay.RemoveListener(OnTriggerMoveStay);
+            _physicsTriggerEvent._onTriggerStay.AddListener(OnTriggerMoveStay);
             _physicsTriggerEvent._onTriggerExit.RemoveListener(OnTriggerMoveExit);
             _physicsTriggerEvent._onTriggerExit.AddListener(OnTriggerMoveExit);
         }
 
         private void OnDisable()
         {
-            _physicsTriggerEvent._onTriggerEnter.RemoveListener(OnTriggerMoveEnter);
+            _physicsTriggerEvent._onTriggerStay.RemoveListener(OnTriggerMoveStay);
             _physicsTriggerEvent._onTriggerExit.AddListener(OnTriggerMoveExit);
 
         }
 
       
 
-        private void OnTriggerMoveEnter(PhysicsTriggerEvent physicsTriggerEvent, Collider other)
+        private void OnTriggerMoveStay(PhysicsTriggerEvent physicsTriggerEvent, Collider other)
         {
             MovableController player = other.GetComponentInParent<MovableController>();
             if (player  != null)
