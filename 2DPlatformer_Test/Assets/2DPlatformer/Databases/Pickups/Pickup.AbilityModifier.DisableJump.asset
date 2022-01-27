@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a418a7d93e6e2344092b915a58bc0545, type: 3}
-  m_Name: Pickup.Loot
+  m_Script: {fileID: 11500000, guid: 72b5afcaedb8b5743b72e508eee0cd2c, type: 3}
+  m_Name: Pickup.AbilityModifier.DisableJump
   m_EditorClassIdentifier: 
-  _destroyPickupOnApply: 0
-  _lootValue: 1
+  _destroyPickupOnApply: 1
+  _ability: 0
+  _modifier: 1

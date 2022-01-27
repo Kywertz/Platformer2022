@@ -33,6 +33,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: HealSpell
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6dc8fc9e-7839-46e6-80a2-ba08cb1d0fd3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 0ba5e1b4-1118-4a5f-96a7-153f043b6099
@@ -49,4 +57,12 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: WallRatSpell
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 314fbdfa-a3b9-412a-ade2-b2c23509de38
+      m_Path: <Keyboard>/h
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: HealSpell
       m_Flags: 0
