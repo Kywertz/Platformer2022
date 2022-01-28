@@ -34,3 +34,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: AbilityImproverInteraction
       m_Flags: 0
+    - m_Name: 
+      m_Id: 6916c472-7978-4c1f-8b8a-936c41aede4b
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: AbilityImproverInteraction
+      m_Flags: 0

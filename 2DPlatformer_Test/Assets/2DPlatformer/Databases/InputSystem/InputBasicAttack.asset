@@ -34,3 +34,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: BasicAttack
       m_Flags: 0
+    - m_Name: 
+      m_Id: 224acb4d-1109-44a9-9a79-8295c3a94c25
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: BasicAttack
+      m_Flags: 0
