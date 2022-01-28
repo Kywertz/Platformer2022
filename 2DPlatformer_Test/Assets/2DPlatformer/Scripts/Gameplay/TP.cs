@@ -58,9 +58,16 @@ namespace GSGD2.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            _onTrigger = true;
-            print(_onTrigger);
-            _text.gameObject.SetActive(true);
+
+            PlayerRef cubeController = other.GetComponentInParent<PlayerRef>();
+
+            if (cubeController != null)
+            {
+                _onTrigger = true;
+                print(_onTrigger);
+                _text.gameObject.SetActive(true);
+            }
+
         }
 
         private void OnTriggerExit(Collider other)
