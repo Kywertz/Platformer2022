@@ -711,7 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _physicsTriggerEvent: {fileID: 2879764651273955256}
   _damage:
-    _damageValue: 500
+    _damageValue: 0
     _bump:
       enabled: 1
       _maximumAllowedForces: 1

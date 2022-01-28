@@ -112,11 +112,7 @@ namespace GSGD2.Gameplay
 
             }
 
-            //if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, _maxDistance, _walllayer))
-            //{
-            //    transform.rotation = Quaternion.Euler(0, 180, 0);
-            //    transform.position += transform.forward * Time.deltaTime * _speed;
-            //}
+          
         }
 
 

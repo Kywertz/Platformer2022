@@ -21,6 +21,11 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private LootHUD _loothud = null;
 
+        [SerializeField]
+        private GameObject _childrenPrefab = null;
+
+        public bool _upgradetaken = false;
+
         public void TryAddJumpForce(int removedloot)
         {
             //verifier si le loot n'est pas égale à zéro ou est au dessus de la valeure demander par le shop avant d'apply
@@ -38,7 +43,9 @@ namespace GSGD2.Gameplay
 
         private  void Pickup()
         {
-            _pickupCommand.Apply(this);
+            //_pickupCommand.Apply(this);
+            _upgradetaken = true;
+            Destroy(_childrenPrefab);
         }
       
 
