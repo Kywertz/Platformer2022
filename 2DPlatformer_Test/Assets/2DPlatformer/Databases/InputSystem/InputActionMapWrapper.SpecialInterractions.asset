@@ -25,6 +25,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: InputActionY
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 2bc51b88-59c4-4252-be67-68b4fccecb4c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 5e738f3b-1bf3-4f35-899c-d3944a4d9367
@@ -33,4 +41,20 @@ MonoBehaviour:
       m_Processors: Normalize
       m_Groups: 
       m_Action: AbilityImproverInteraction
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6916c472-7978-4c1f-8b8a-936c41aede4b
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: AbilityImproverInteraction
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 80f6f7cd-0cf1-46e5-878f-303459ff7880
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: InputActionY
       m_Flags: 0
