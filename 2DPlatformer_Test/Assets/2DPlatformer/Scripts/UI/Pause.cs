@@ -7,6 +7,8 @@ namespace GSGD2.Gameplay
     using GSGD2.Extensions;
     using UnityEngine.InputSystem;
     using GSGD2.Player;
+    using UnityEngine.EventSystems;
+
     public class Pause : MonoBehaviour
     {
         [SerializeField]
@@ -19,6 +21,9 @@ namespace GSGD2.Gameplay
         private LoadSceneMode _mode = LoadSceneMode.Single;
         [SerializeField]
         private GameObject _hlayoutofpause = null;
+
+        [SerializeField]
+        private GameObject _buttonFocus = null;
 
         private void OnEnable()
         {
@@ -69,6 +74,7 @@ namespace GSGD2.Gameplay
             {
                 Time.timeScale = 0;
                 _hlayoutofpause.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(_buttonFocus.gameObject);
             }
 
         }
