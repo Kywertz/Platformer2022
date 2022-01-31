@@ -21,24 +21,20 @@ namespace GSGD2.Gameplay
         private float _radius = 2f;
 
         [SerializeField]
-        private float _wallMaxDistance = 20f;
+        private float _wallMaxDistance = 5f;
 
-        [SerializeField]
-        private float _maxDistance = 20f;
 
         [SerializeField]
         private float _speed = 2f;
-
-        [SerializeField]
-        private float gravityscale = 1f;
-
 
 
         private bool foundPlayerTest = false;
 
         [SerializeField]
-        private Transform test;
+        private GameObject _offset = null;
 
+        [SerializeField]
+        private GameObject _cadavretospawn = null;
 
         private void Update()
         {
@@ -60,23 +56,31 @@ namespace GSGD2.Gameplay
             bool hasFoundPlayerInFrontOf = false;
             bool hasFoundPlayerBehind = false;
 
+
             // Conditions qu'est ce qu' on doit faire ?
             RaycastHit hit;
-            // On verifie si le joueur est devant si il est devant go vers lui
-            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, 0.1f, _layer))
+            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.position, out hit, 0.1f, _layer))
             {
+                print(hit);
+                Debug.LogFormat("{0}", hit);
                 if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                 {
+                    Debug.Log("JE TE VOIS BATARD");
                     float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
-                    bool isPlayerIsInFrontOf = angle > 90;
+                    bool isPlayerIsInFrontOf = angle < 90;
+                    Debug.LogFormat("{0}", angle);
 
                     if (isPlayerIsInFrontOf == true)
                     {
+                        Debug.Log("EN FACE");
                         hasFoundPlayerInFrontOf = true;
+                        hasFoundPlayerBehind = false;
                     }
                     else
                     {
+                        Debug.Log("DERRIERE");
                         hasFoundPlayerBehind = true;
+                        hasFoundPlayerInFrontOf = false;
                     }
                 }
             }
@@ -94,21 +98,28 @@ namespace GSGD2.Gameplay
 
                 if (hasFoundPlayerBehind == true)
                 {
+                    Debug.Log("derriere se retourne");
                     transform.rotation = Quaternion.Euler(0, 180, 0);
+
+                    //hasFoundPlayerInFrontOf = false;
                 }
                 else if (hasFoundPlayerInFrontOf == true)
                 {
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    Debug.Log("EN FACE");
+                   
+
+                    //hasFoundPlayerBehind = false;
                 }
 
                 // player true + wall true
                 if (isItAWall == true)
                 {
-
+                
                 }
                 // player true + wall false
                 else
                 {
+                    //Debug.Log("Player treu  + wall false");
                     transform.position += (direction).normalized * _speed * Time.deltaTime;
                 }
             }
@@ -117,11 +128,14 @@ namespace GSGD2.Gameplay
                 // player false + wall true
                 if (isItAWall == true)
                 {
+                   // Debug.Log("Player false  + wall true");
                     transform.rotation *= Quaternion.Euler(0, 180, 0);
+                     transform.position += transform.forward * Time.deltaTime * _speed;
                 }
                 // player false + wall false
                 else
                 {
+                    //Debug.Log("Player false  + wall false");
                     transform.position += transform.forward * Time.deltaTime * _speed;
                 }
             }
@@ -129,18 +143,20 @@ namespace GSGD2.Gameplay
         }
 
 
+        public void SpawnCadavre()
+        {
+            Instantiate(_cadavretospawn, _offset.transform.position, _offset.transform.rotation);
+        }
+
         //private void OnTriggerEnter(Collider other)
         //{
-        //    if(other = LevelReferences.Instance.Player.Collider)
+        //    if (other = LevelReferences.Instance.Player.Collider)
         //    {
-        //        transform.position += (LevelReferences.Instance.Player.transform.position - transform.position).normalized * _speed * Time.deltaTime;
+        //        Vector3 direction = new Vector3(0, 0, (LevelReferences.Instance.Player.transform.position - transform.position).z);
+        //        transform.position += (direction).normalized * _speed * Time.deltaTime;
         //    }
         //}
 
-        private void EnnemieMove()
-        {
-            transform.position += /*(Physics.gravity * gravityscale +*/ transform.forward * Time.deltaTime * _speed;
-        }
 
         private void OnDrawGizmos()
         {
@@ -149,6 +165,7 @@ namespace GSGD2.Gameplay
             {
                 Gizmos.color = Color.red;
             }
+
             Gizmos.DrawWireSphere(fromTransform.position, _radius);
 
             Gizmos.color = color;

@@ -9,11 +9,14 @@ namespace GSGD2.Gameplay
     public class BasicAttack : MonoBehaviour
     {
 
-
         [SerializeField]
         private GameObject _fluteattackPrefab = null;
 
         private bool _startdown = false;
+
+        [SerializeField]
+        private GameObject _offset = null;
+
 
         private float _cooldown = 1f;
 
@@ -32,6 +35,9 @@ namespace GSGD2.Gameplay
         private InputActionMapWrapper _inputActionmap = null;
 
         private bool _starttimer = false;
+
+        [SerializeField]
+        private AttackObject _attackobject = null;
 
         //[SerializeField]
         //private PlayerController _playerController = null;
@@ -67,7 +73,8 @@ namespace GSGD2.Gameplay
 
             if (_bigfloat < 0)
             {
-                _fluteattackPrefab.SetActive(false);
+                //_fluteattackPrefab.SetActive(false);
+                _attackobject.DestroyMePlease();
                 _starttimer = false;
                 _bigfloat = 0.2f;
                 _startdown = true;
@@ -87,10 +94,12 @@ namespace GSGD2.Gameplay
 
         private void PlayerControllerBasicAttackPerformed(/*PlayerController sender,*/ InputAction.CallbackContext obj)
         {
+            
            
             if (_startdown == false)
             {
-                _fluteattackPrefab.SetActive(true);
+                //_fluteattackPrefab.SetActive(true);
+                Instantiate(_fluteattackPrefab, _offset.transform.position, _offset.transform.rotation);
                 _starttimer = true;
             }
           

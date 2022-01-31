@@ -20,6 +20,12 @@ namespace GSGD2.Gameplay
         private PhysicsTriggerEvent _physicsTriggerEvent = null;
 
         [SerializeField]
+        private GameObject _ennemies = null;
+
+        [SerializeField]
+        private EnnemiesManager _ennemiesManager = null;
+
+        [SerializeField]
         private int _index = 0;
 
         [SerializeField]
@@ -132,6 +138,13 @@ namespace GSGD2.Gameplay
                 _hasBeenTriggeredYet = true;
                 LevelReferences.Instance.SpellManager.ReloadSpells();
                 LifeRefill();
+
+               for (int i = 0; i < _ennemiesManager._spawners.Length; i++)
+                {
+                    Instantiate(_ennemies, transform.position, transform.rotation);
+                    //LevelReferences.Instance.EnnemiesManager._spawners.
+                    //comment avoir la position des spawner ?
+                }
 
             }
         }

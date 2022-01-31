@@ -247,11 +247,8 @@ namespace GSGD2.Player
 		/// </summary>
 		public int LastMovementDirection => _lastMovementDirection;
 
-		// Vector3 : Value Type
-		// Transform : Reference type
-		public Transform _positionofplayerbeforjump = null;
-		private Transform _position = null;
 
+		
 
 		public State CurrentState => _currentState;
 		public State PreviousState => _previousState;
@@ -591,19 +588,22 @@ namespace GSGD2.Player
 					break;
 				case State.StartJump:
 				{
-						// TODO MAXIME
-						//_position.position = transform.position;
-						//_positionofplayerbeforjump = _position;
-				}
-				break;
+						
+                        
+                }
+                    break;
 				case State.Jumping:
 					break;
 				case State.EndJump:
+                    {
+						
+                    }
 					break;
 				case State.WallGrab:
 					break;
 				case State.WallJump:
 				{
+						
 				}
 				break;
 				case State.Dashing:
@@ -654,8 +654,6 @@ namespace GSGD2.Player
 				break;
 				case State.StartJump:
 				{
-
-
 					if (_previousState == State.WallJump)
 					{
 						_shouldChangeToFallingStateWhenReleasingJump = false;
@@ -792,8 +790,8 @@ namespace GSGD2.Player
 				}
 				break;
 				case State.StartJump:
-				{
-				}
+				{                       
+                }
 				break;
 				case State.Jumping:
 				{
@@ -1083,6 +1081,7 @@ namespace GSGD2.Player
 				break;
 				case State.StartJump:
 				{
+						
 				}
 				break;
 				case State.Jumping:

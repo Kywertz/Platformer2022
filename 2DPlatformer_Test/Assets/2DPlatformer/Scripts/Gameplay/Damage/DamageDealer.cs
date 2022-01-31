@@ -20,8 +20,8 @@ namespace GSGD2.Gameplay
 		[SerializeField]
 		private Damage _damage = null;
 
-		[SerializeField]
-		private bool _ignorePlayer = false;
+		
+		public bool _ignorePlayer = false;
 
 		// TODO AL : move dot values to dot class
 		[SerializeField]

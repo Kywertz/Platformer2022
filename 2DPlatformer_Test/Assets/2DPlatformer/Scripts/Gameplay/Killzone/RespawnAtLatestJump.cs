@@ -3,12 +3,20 @@ namespace GSGD2.Gameplay
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using GSGD2.Player;
 
-	/// <summary>
-	/// Component that call <see cref="AKillZoneReceiver.OnEnterKillzone(Killzone)"/> on any <see cref="AKillZoneReceiver"/> that enter its trigger.
-	/// </summary>
-	[RequireComponent(typeof(Rigidbody))]
-	public class RespawnAtLatestJump : Killzone
+	public class RespawnAtLatestJump : MonoBehaviour
 	{
-	}
+
+
+		[SerializeField]
+		private GameObject _microcheckpoint = null;
+
+        private void OnTriggerEnter(Collider other)
+        {
+			LevelReferences.Instance.Player.transform.position = _microcheckpoint.transform.position;
+        }
+
+
+    }
 }
