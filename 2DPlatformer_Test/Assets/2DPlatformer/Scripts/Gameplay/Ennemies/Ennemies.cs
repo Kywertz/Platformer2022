@@ -15,14 +15,13 @@ namespace GSGD2.Gameplay
         private LayerMask _layer;
 
         [SerializeField]
-        private LayerMask _walllayer;
-
-        private bool _seeplayer = false;
+        private LayerMask _wallLayer;
 
         [SerializeField]
         private float _radius = 2f;
 
-
+        [SerializeField]
+        private float _wallMaxDistance = 20f;
 
         [SerializeField]
         private float _maxDistance = 20f;
@@ -33,86 +32,100 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private float gravityscale = 1f;
 
-        private bool _canmove = true;
+
+
+        private bool foundPlayerTest = false;
+
+        [SerializeField]
+        private Transform test;
+
 
         private void Update()
         {
 
-            if (_canmove == true)
-            {
-                EnnemieMove();
+            //float angleee = Vector3.Angle(transform.forward, test.transform.position - transform.position);
+            //bool isPlayerIsInFrontOfeee = angleee > 180;
+            //Debug.LogFormat("{0}", angleee);
 
+            // Sensor qu' est ce qui se passe ?
+            bool isItAWall = false;
+            bool wallRaycastResult = Physics.Raycast(fromTransform.position, fromTransform.forward, out RaycastHit wallHit, _wallMaxDistance, _wallLayer);
+            Debug.DrawLine(fromTransform.position, fromTransform.position + fromTransform.forward * _wallMaxDistance);
+
+            if (wallRaycastResult == true)
+            {
+                isItAWall = Vector3.Dot(wallHit.normal, -transform.forward) == 1;
             }
 
+            bool hasFoundPlayerInFrontOf = false;
+            bool hasFoundPlayerBehind = false;
+
+            // Conditions qu'est ce qu' on doit faire ?
             RaycastHit hit;
-
             // On verifie si le joueur est devant si il est devant go vers lui
-            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, _maxDistance, _layer))
+            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward, out hit, 0.1f, _layer))
             {
-
-                Debug.Log(hit.transform.name);
-
                 if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                 {
-                    _canmove = false;
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
-                    Vector3 direction = LevelReferences.Instance.Player.transform.position - transform.position;
-                    direction.x = 0;
-                    direction.y = 0;
-                    transform.position += (direction).normalized * _speed * Time.deltaTime;
+                    float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
+                    bool isPlayerIsInFrontOf = angle > 90;
 
+                    if (isPlayerIsInFrontOf == true)
+                    {
+                        hasFoundPlayerInFrontOf = true;
+                    }
+                    else
+                    {
+                        hasFoundPlayerBehind = true;
+                    }
                 }
-                else
-                {
-                    _canmove = true;
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
-                }
-
-
-
-
-
-
             }
-            // On verifie si le joueur est derr si il est derr se retourne et go vers lui
-            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.forward * -1, out hit, _maxDistance, _layer))
+
+            bool hasFoundPlayer = hasFoundPlayerBehind || hasFoundPlayerInFrontOf;
+            foundPlayerTest = hasFoundPlayer;
+
+
+            // Execution qu'est ce qu'on fait 
+            if (hasFoundPlayer == true)
             {
+                Debug.LogFormat("HasFoundPlayer infront:{0} | behind:{1}", hasFoundPlayerInFrontOf, hasFoundPlayerBehind);
 
+                Vector3 direction = new Vector3(0, 0, (LevelReferences.Instance.Player.transform.position - transform.position).z);
 
-
-                Debug.Log(hit.transform.name);
-
-                if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
+                if (hasFoundPlayerBehind == true)
                 {
-                    _canmove = false;
                     transform.rotation = Quaternion.Euler(0, 180, 0);
-                    Vector3 direction = LevelReferences.Instance.Player.transform.position - transform.position;
-                    direction.x = 0;
-                    direction.y = 0;
-                    transform.position += (direction).normalized * _speed * Time.deltaTime;
-                    _seeplayer = true;
+                }
+                else if (hasFoundPlayerInFrontOf == true)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+
+                // player true + wall true
+                if (isItAWall == true)
+                {
 
                 }
+                // player true + wall false
                 else
                 {
-                    _seeplayer = false;
-                    _canmove = true;
-                    if (_seeplayer == false)
-                    {
-                        transform.rotation = Quaternion.Euler(0, 0, 0);
-                    }
-
-                    if (_seeplayer == true)
-                    {
-                        transform.rotation = Quaternion.Euler(0, 180, 0);
-                    }
+                    transform.position += (direction).normalized * _speed * Time.deltaTime;
                 }
-
-
-
+            }
+            else
+            {
+                // player false + wall true
+                if (isItAWall == true)
+                {
+                    transform.rotation *= Quaternion.Euler(0, 180, 0);
+                }
+                // player false + wall false
+                else
+                {
+                    transform.position += transform.forward * Time.deltaTime * _speed;
+                }
             }
 
-          
         }
 
 
@@ -127,6 +140,18 @@ namespace GSGD2.Gameplay
         private void EnnemieMove()
         {
             transform.position += /*(Physics.gravity * gravityscale +*/ transform.forward * Time.deltaTime * _speed;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Color color = Gizmos.color;
+            if (foundPlayerTest == true)
+            {
+                Gizmos.color = Color.red;
+            }
+            Gizmos.DrawWireSphere(fromTransform.position, _radius);
+
+            Gizmos.color = color;
         }
 
     }

@@ -247,6 +247,12 @@ namespace GSGD2.Player
 		/// </summary>
 		public int LastMovementDirection => _lastMovementDirection;
 
+		// Vector3 : Value Type
+		// Transform : Reference type
+		public Transform _positionofplayerbeforjump = null;
+		private Transform _position = null;
+
+
 		public State CurrentState => _currentState;
 		public State PreviousState => _previousState;
 		public bool IsGrounded => _currentState == State.Grounded;
@@ -585,6 +591,9 @@ namespace GSGD2.Player
 					break;
 				case State.StartJump:
 				{
+						// TODO MAXIME
+						//_position.position = transform.position;
+						//_positionofplayerbeforjump = _position;
 				}
 				break;
 				case State.Jumping:

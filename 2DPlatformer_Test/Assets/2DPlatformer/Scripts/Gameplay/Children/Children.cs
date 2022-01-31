@@ -12,8 +12,7 @@ namespace GSGD2.Gameplay
         private bool _istaken = false;
         private bool _isentered = false;
 
-        [SerializeField]
-        PickupInteractor _pickup = null;
+        
 
 
         private void OnTriggerEnter(Collider other)
@@ -35,18 +34,7 @@ namespace GSGD2.Gameplay
         }
 
 
-        public void Test()
-        {
-            if (_isentered == true)
-            {
-                _istaken = true;
-                transform.position = _transformoffset.position;
-
-                //_pickup.InteractFromTriggerEnter(LevelReferences.Instance.Player);
-                //_pickup.Apply;
-            }
-        }
-
+    
         private void Update()
         {
             if (_istaken == true)
