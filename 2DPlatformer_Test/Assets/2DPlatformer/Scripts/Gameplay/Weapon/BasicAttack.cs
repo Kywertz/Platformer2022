@@ -57,6 +57,8 @@ namespace GSGD2.Gameplay
 
         private void Update()
         {
+            
+
             if (_starttimer == true)
             {
                 _bigfloat -= Time.deltaTime;
