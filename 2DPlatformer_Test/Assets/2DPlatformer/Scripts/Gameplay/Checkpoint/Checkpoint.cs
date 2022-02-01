@@ -141,9 +141,12 @@ namespace GSGD2.Gameplay
 
                for (int i = 0; i < _ennemiesManager._spawners.Length; i++)
                 {
-                    Instantiate(_ennemies, transform.position, transform.rotation);
-                    //LevelReferences.Instance.EnnemiesManager._spawners.
-                    //comment avoir la position des spawner ?
+                    _ennemiesManager._spawners[i].SpawnEnnemies();
+
+
+                    //     Instantiate(_ennemies, transform.position, transform.rotation);
+                    ////LevelReferences.Instance.EnnemiesManager._spawners.
+                    ////comment avoir la position des spawner ?
                 }
 
             }
