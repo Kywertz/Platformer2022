@@ -34,3 +34,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: SwitchUpgradeAttack
       m_Flags: 0
+    - m_Name: 
+      m_Id: c5ce360e-2bad-47a2-9013-315b1adf92da
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SwitchUpgradeAttack
+      m_Flags: 0
