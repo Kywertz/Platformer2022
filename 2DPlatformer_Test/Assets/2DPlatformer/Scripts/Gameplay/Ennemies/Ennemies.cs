@@ -61,8 +61,7 @@ namespace GSGD2.Gameplay
             RaycastHit hit;
             if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.position, out hit, 0.1f, _layer))
             {
-                print(hit);
-                Debug.LogFormat("{0}", hit);
+                //Debug.LogFormat("{0}", hit);
                 if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                 {
                     Debug.Log("JE TE VOIS BATARD");
@@ -99,7 +98,7 @@ namespace GSGD2.Gameplay
                 if (hasFoundPlayerBehind == true)
                 {
                     Debug.Log("derriere se retourne");
-                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
 
                     //hasFoundPlayerInFrontOf = false;
                 }
