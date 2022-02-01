@@ -41,9 +41,7 @@ namespace GSGD2.Gameplay
         private void Update()
         {
 
-            //float angleee = Vector3.Angle(transform.forward, test.transform.position - transform.position);
-            //bool isPlayerIsInFrontOfeee = angleee > 180;
-            //Debug.LogFormat("{0}", angleee);
+            
 
             // Sensor qu' est ce qui se passe ?
             bool isItAWall = false;
@@ -63,24 +61,23 @@ namespace GSGD2.Gameplay
             RaycastHit hit;
             if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.position, out hit, 0.1f, _layer))
             {
-                print(hit);
-                Debug.LogFormat("{0}", hit);
+                //Debug.LogFormat("{0}", hit);
                 if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                 {
-                   
+                    Debug.Log("JE TE VOIS BATARD");
                     float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
                     bool isPlayerIsInFrontOf = angle < 90;
-                  
+                    Debug.LogFormat("{0}", angle);
 
                     if (isPlayerIsInFrontOf == true)
                     {
-                        
+                        Debug.Log("EN FACE");
                         hasFoundPlayerInFrontOf = true;
                         hasFoundPlayerBehind = false;
                     }
                     else
                     {
-                        
+                        Debug.Log("DERRIERE");
                         hasFoundPlayerBehind = true;
                         hasFoundPlayerInFrontOf = false;
                     }
@@ -100,14 +97,14 @@ namespace GSGD2.Gameplay
 
                 if (hasFoundPlayerBehind == true)
                 {
-                    
-                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    Debug.Log("derriere se retourne");
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
 
                     //hasFoundPlayerInFrontOf = false;
                 }
                 else if (hasFoundPlayerInFrontOf == true)
                 {
-                  
+                    Debug.Log("EN FACE");
                    
 
                     //hasFoundPlayerBehind = false;
@@ -144,21 +141,19 @@ namespace GSGD2.Gameplay
 
         }
 
-        public void ReactivateUs()
+        public void ReactiveUs()
         {
             gameObject.SetActive(true);
         }
 
-
-
         public void SpawnCadavre()
         {
             Instantiate(_cadavretospawn, _offset.transform.position, _offset.transform.rotation);
-            _isdead = true;
             gameObject.SetActive(false);
+            _isdead = true;
         }
 
-      
+        
 
 
         private void OnDrawGizmos()

@@ -143,7 +143,7 @@ namespace GSGD2.Gameplay
 
                for (int i = 0; i < _ennemiesManager._ennemies.Length; i++)
                 {
-                    _ennemiesManager._ennemies[i].ReactivateUs();
+                    _ennemiesManager._ennemies[i].ReactiveUs();
                     
                 }
 
