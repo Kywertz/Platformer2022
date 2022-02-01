@@ -1,12 +1,10 @@
 namespace GSGD2.Gameplay
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using GSGD2.Player;
-    using UnityEngine.InputSystem;
     using GSGD2.Extensions;
-    using TMPro;
+    using GSGD2.Player;
+    using UnityEngine;
+    using UnityEngine.InputSystem;
+    using Cinemachine;
     public class ShopUi : MonoBehaviour, ICommandSender
     {
         [SerializeField]
@@ -14,7 +12,7 @@ namespace GSGD2.Gameplay
         private InputAction _abilityImproverInteractionInputAction = null;
         [SerializeField]
         private GameObject _shop = null;
-        [SerializeField] 
+        [SerializeField]
         private GameObject _text = null;
         [SerializeField]
         private PickupCommand _pickupCommand = null;
@@ -22,14 +20,28 @@ namespace GSGD2.Gameplay
         private LootHUD _loothud = null;
 
         [SerializeField]
+        private GameObject _cameraSetup = null;
+
+        [SerializeField]
+        private GameObject _cameraRemove = null;
+
+        private bool _isShopOpen = false;
+
+        [SerializeField]
+        private CinemachineVirtualCamera _cameraTest = null;
+
+        [SerializeField]
+        private CubeController _cubeController = null;
+
+        [SerializeField]
         private GameObject _childrenPrefab = null;
 
-        public bool _upgradetaken = false;
+        public bool _upgradetaken = true;
 
         public void TryAddJumpForce(int removedloot)
         {
             //verifier si le loot n'est pas égale à zéro ou est au dessus de la valeure demander par le shop avant d'apply
-            if(LevelReferences.Instance.LootManager.CurrentLoot >= removedloot)
+            if (LevelReferences.Instance.LootManager.CurrentLoot >= removedloot)
             {
                 LevelReferences.Instance.LootManager.RemoveLoot(removedloot);
                 Pickup();
@@ -41,13 +53,13 @@ namespace GSGD2.Gameplay
             }
         }
 
-        private  void Pickup()
+        private void Pickup()
         {
-         
+
             _upgradetaken = true;
             Destroy(_childrenPrefab);
         }
-      
+
 
         private void OnEnable()
         {
@@ -55,15 +67,12 @@ namespace GSGD2.Gameplay
             {
                 _abilityImproverInteractionInputAction.performed -= AbilityImproverInteractionInputAction_performed;
                 _abilityImproverInteractionInputAction.performed += AbilityImproverInteractionInputAction_performed;
-                
+
             }
 
             _abilityImproverInteractionInputAction.Enable();
-            
-           
+
         }
-
-
 
         private void OnDisable()
         {
@@ -71,21 +80,48 @@ namespace GSGD2.Gameplay
             {
                 _abilityImproverInteractionInputAction.performed -= AbilityImproverInteractionInputAction_performed;
                 _abilityImproverInteractionInputAction.Disable();
-                _shop.SetActive(false);
-                _text.SetActive(true);
             }
         }
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            
             //verif si enter et si + 0 $ avec spot puis affiche l'ui du shop
-            _shop.SetActive(true);
-            _text.SetActive(false);
+            OpenShop();
         }
-        GameObject ICommandSender.GetGameObject() => gameObject;
 
+        private void OpenShop()
+        {
+            if (_isShopOpen == true)
+            {
+                _isShopOpen = false;
+                _shop.SetActive(false);
+                _text.SetActive(true);
+                //_cameraSetup.SetActive(false);
+                //_cameraRemove.gameObject.SetActive(true);
+                print(_isShopOpen);
+                _cameraTest.gameObject.SetActive(true);
+                //_cameraTest.m_Lens.FieldOfView = 60;
+            }
+
+            else
+            {
+                _isShopOpen = true;
+                _shop.SetActive(true);
+                _text.SetActive(false);
+                //_cameraRemove.gameObject.SetActive(false);
+                //_cameraSetup.SetActive(true);
+                print(_isShopOpen);
+                //_cameraTest.gameObject.SetActive(true);
+                //_cameraTest.m_Lens.FieldOfView = 10;
+                //_cameraTest.LookAt.gameObject.transform.position = Vector3.zero;
+            }
+            
+        }
+        
+        
+        GameObject ICommandSender.GetGameObject() => gameObject;
     }
+  
 
 
 
