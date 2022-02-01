@@ -13,12 +13,17 @@ namespace GSGD2.Gameplay
     {
         [SerializeField]
         private bool _loadAtOnEnable = false;
+
         private InputAction _pauseability = null;
+
         [SerializeField]
         private InputActionMapWrapper _inputActionmap = null;
+
         private InputAction _pauseAction = null;
+
         [SerializeField]
         private LoadSceneMode _mode = LoadSceneMode.Single;
+
         [SerializeField]
         private GameObject _hlayoutofpause = null;
 
