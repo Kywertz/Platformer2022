@@ -1,14 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Spawner : MonoBehaviour
+namespace GSGD2.Gameplay
 {
-    // Start is called before the first frame update
-    [SerializeField]
-    private GameObject _ennemies = null;
-    public void SpawnEnnemies()
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class Spawner : MonoBehaviour
     {
-        Instantiate(_ennemies, transform.position, transform.rotation);
+        // Start is called before the first frame update
+        [SerializeField]
+        private Ennemies _ennemies = null;
+
+
+
+        public void SpawnEnnemies()
+        {
+            if(_ennemies._isdead == true)
+            {
+                
+               Instantiate(_ennemies, transform.position, transform.rotation);
+
+            }
+        }
     }
+
 }

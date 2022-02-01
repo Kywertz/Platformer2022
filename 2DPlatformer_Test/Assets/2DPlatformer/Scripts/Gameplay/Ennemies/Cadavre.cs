@@ -47,7 +47,7 @@ namespace GSGD2.Gameplay
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            Debug.Log("Test input");
+            
             LevelReferences.Instance.SpellManager.AddSpell(1);
             Destroy(gameObject);
 
@@ -58,8 +58,7 @@ namespace GSGD2.Gameplay
         {
             if (other = LevelReferences.Instance.Player.Collider)
             {
-                //LevelReferences.Instance.SpellManager.AddSpell(1);
-                // Destroy(gameObject);
+                
                 _canvas.SetActive(true);
 
 

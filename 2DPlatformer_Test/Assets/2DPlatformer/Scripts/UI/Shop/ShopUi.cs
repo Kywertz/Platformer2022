@@ -43,7 +43,7 @@ namespace GSGD2.Gameplay
 
         private  void Pickup()
         {
-            //_pickupCommand.Apply(this);
+         
             _upgradetaken = true;
             Destroy(_childrenPrefab);
         }
@@ -60,7 +60,7 @@ namespace GSGD2.Gameplay
 
             _abilityImproverInteractionInputAction.Enable();
             
-            //GetComponentsInChildren.SetActive(false);
+           
         }
 
 
@@ -78,7 +78,7 @@ namespace GSGD2.Gameplay
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            Debug.Log("Test input");
+            
             //verif si enter et si + 0 $ avec spot puis affiche l'ui du shop
             _shop.SetActive(true);
             _text.SetActive(false);

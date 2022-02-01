@@ -29,7 +29,7 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 795e1f2d-6737-4e27-a74f-64c6a90b2fac
       m_Path: <Keyboard>/w
-      m_Interactions: 
+      m_Interactions: Press(behavior=2)
       m_Processors: 
       m_Groups: 
       m_Action: PushPull

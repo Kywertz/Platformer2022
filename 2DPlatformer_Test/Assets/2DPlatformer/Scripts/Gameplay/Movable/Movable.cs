@@ -6,8 +6,7 @@ namespace GSGD2.Gameplay
     using GSGD2.Player;
     public class Movable : MonoBehaviour
     {
-        //public bool _canmove = false;
-
+        
         [SerializeField]
         private PhysicsTriggerEvent _physicsTriggerEvent = null;
 
@@ -33,9 +32,9 @@ namespace GSGD2.Gameplay
             MovableController player = other.GetComponentInParent<MovableController>();
             if (player  != null)
             {
-                //_canmove = true;
+                
                 player.Add(this);
-                Debug.Log("Added Movable");
+               
             }
            
         }
@@ -46,7 +45,7 @@ namespace GSGD2.Gameplay
             if(player != null)
             {
               player.Remove(this);
-                Debug.Log("remove Movable");
+              
             }
         }
 

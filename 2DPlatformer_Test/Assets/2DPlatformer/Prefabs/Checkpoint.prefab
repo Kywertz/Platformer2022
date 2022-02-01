@@ -2231,6 +2231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _physicsTriggerEvent: {fileID: 8721631218478612043}
+  _ennemies: {fileID: 5157522878376216624, guid: c8c5997b40d2beb49bdf3d2df4a0d23a, type: 3}
+  _ennemiesManager: {fileID: 0}
   _index: 0
   _inputActionMapWrapper: {fileID: 11400000, guid: e1d6add415fc4e24a887050c5ba1909f, type: 2}
   _canvas: {fileID: 2814265535907771798}

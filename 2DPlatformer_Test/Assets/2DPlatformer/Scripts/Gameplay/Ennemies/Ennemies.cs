@@ -8,6 +8,8 @@ namespace GSGD2.Gameplay
     public class Ennemies : MonoBehaviour
     {
 
+        public bool _isdead = false;
+
         [SerializeField]
         private Transform fromTransform = null;
 
@@ -65,20 +67,20 @@ namespace GSGD2.Gameplay
                 Debug.LogFormat("{0}", hit);
                 if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                 {
-                    Debug.Log("JE TE VOIS BATARD");
+                   
                     float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
                     bool isPlayerIsInFrontOf = angle < 90;
-                    Debug.LogFormat("{0}", angle);
+                  
 
                     if (isPlayerIsInFrontOf == true)
                     {
-                        Debug.Log("EN FACE");
+                        
                         hasFoundPlayerInFrontOf = true;
                         hasFoundPlayerBehind = false;
                     }
                     else
                     {
-                        Debug.Log("DERRIERE");
+                        
                         hasFoundPlayerBehind = true;
                         hasFoundPlayerInFrontOf = false;
                     }
@@ -98,14 +100,14 @@ namespace GSGD2.Gameplay
 
                 if (hasFoundPlayerBehind == true)
                 {
-                    Debug.Log("derriere se retourne");
+                    
                     transform.rotation = Quaternion.Euler(0, 180, 0);
 
                     //hasFoundPlayerInFrontOf = false;
                 }
                 else if (hasFoundPlayerInFrontOf == true)
                 {
-                    Debug.Log("EN FACE");
+                  
                    
 
                     //hasFoundPlayerBehind = false;
@@ -142,20 +144,21 @@ namespace GSGD2.Gameplay
 
         }
 
+        public void ReactivateUs()
+        {
+            gameObject.SetActive(true);
+        }
+
+
 
         public void SpawnCadavre()
         {
             Instantiate(_cadavretospawn, _offset.transform.position, _offset.transform.rotation);
+            _isdead = true;
+            gameObject.SetActive(false);
         }
 
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other = LevelReferences.Instance.Player.Collider)
-        //    {
-        //        Vector3 direction = new Vector3(0, 0, (LevelReferences.Instance.Player.transform.position - transform.position).z);
-        //        transform.position += (direction).normalized * _speed * Time.deltaTime;
-        //    }
-        //}
+      
 
 
         private void OnDrawGizmos()

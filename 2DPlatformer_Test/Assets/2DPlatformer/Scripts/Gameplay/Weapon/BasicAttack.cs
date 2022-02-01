@@ -23,11 +23,7 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private float _bigfloat = 2f;
 
-        //[SerializeField]
-        //private InteractWithDamageable _projectileInteractWith = 0f;
-
-        //[SerializeField]
-        //private InteractWithDamageable _damageDealerInteractWith = 0f;
+       
 
         private InputAction _inputaction = null;
 
@@ -39,11 +35,7 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private AttackObject _attackobject = null;
 
-        //[SerializeField]
-        //private PlayerController _playerController = null;
-
-        //[SerializeField]
-        //private float _force = 1f;
+       
 
 
         private void OnEnable()
@@ -73,7 +65,7 @@ namespace GSGD2.Gameplay
 
             if (_bigfloat < 0)
             {
-                //_fluteattackPrefab.SetActive(false);
+               
                 _attackobject.DestroyMePlease();
                 _starttimer = false;
                 _bigfloat = 0.2f;
@@ -92,13 +84,13 @@ namespace GSGD2.Gameplay
             }
         }
 
-        private void PlayerControllerBasicAttackPerformed(/*PlayerController sender,*/ InputAction.CallbackContext obj)
+        private void PlayerControllerBasicAttackPerformed( InputAction.CallbackContext obj)
         {
             
            
             if (_startdown == false)
             {
-                //_fluteattackPrefab.SetActive(true);
+                
                 Instantiate(_fluteattackPrefab, _offset.transform.position, _offset.transform.rotation);
                 _starttimer = true;
             }

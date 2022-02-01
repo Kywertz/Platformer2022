@@ -8,7 +8,7 @@ namespace GSGD2.Gameplay
     {
 
         /*[SerializeField]*/
-        public Spawner[] _spawners = null;
+        public Ennemies[] _ennemies = null;
 
       
     }

@@ -106,6 +106,8 @@ namespace GSGD2.Gameplay
 
         }
 
+        
+
         private void LifeRefill()
         {
             if (LevelReferences.Instance.PlayerReferences.TryGetPlayerDamageable(out PlayerDamageable playerDamageable) == true)
@@ -130,7 +132,7 @@ namespace GSGD2.Gameplay
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            Debug.Log("Test input");
+            
             if (_isentered == true)
             {
                 LevelReferences.Instance.PlayerStart.UpdateLastCheckpoint(this);
@@ -139,14 +141,10 @@ namespace GSGD2.Gameplay
                 LevelReferences.Instance.SpellManager.ReloadSpells();
                 LifeRefill();
 
-               for (int i = 0; i < _ennemiesManager._spawners.Length; i++)
+               for (int i = 0; i < _ennemiesManager._ennemies.Length; i++)
                 {
-                    _ennemiesManager._spawners[i].SpawnEnnemies();
-
-
-                    //     Instantiate(_ennemies, transform.position, transform.rotation);
-                    ////LevelReferences.Instance.EnnemiesManager._spawners.
-                    ////comment avoir la position des spawner ?
+                    _ennemiesManager._ennemies[i].ReactivateUs();
+                    
                 }
 
             }

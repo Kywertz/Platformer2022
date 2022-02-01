@@ -15,7 +15,7 @@ public class AttackObject : MonoBehaviour
 
     private void Update()
     {
-        Debug.LogFormat("{0}, {1}", _float, _lebool);
+        
 
         if (_lebool == true)
         {
