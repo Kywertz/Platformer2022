@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3152047864656265888}
   - component: {fileID: 4716751330023740836}
   - component: {fileID: 5390978617497700087}
-  - component: {fileID: 7144161282729366612}
   m_Layer: 0
   m_Name: CameraRoomSetup.TargetGroup
   m_TagString: Untagged
@@ -330,7 +329,7 @@ MonoBehaviour:
   _onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7144161282729366612}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GSGD2.Gameplay.LootManager, Assembly-CSharp
         m_MethodName: 
         m_Mode: 3
@@ -348,16 +347,3 @@ MonoBehaviour:
   _onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7144161282729366612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857316340650218379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558740507da4a3843b14c2e448728bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spellManager: {fileID: 0}
