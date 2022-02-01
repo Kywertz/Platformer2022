@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3707180257501408254}
   - component: {fileID: 3707180257501408001}
   - component: {fileID: 3707180257501408000}
-  - component: {fileID: 1349947821532238938}
   - component: {fileID: 1155923838291153440}
   m_Layer: 0
   m_Name: Water
@@ -324,44 +323,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3707180257501408002}
   m_Mesh: {fileID: 0}
---- !u!114 &1349947821532238938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3707180257501408002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3540eb9fd869b48908c24d60f9d542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _physicsTriggerEvent: {fileID: 0}
-  _damage:
-    _damageValue: 1
-    _bump:
-      enabled: 1
-      _maximumAllowedForces: 1
-      cubeController: {fileID: 0}
-      displacementEstimationUpdater: {fileID: 0}
-      _gravityScale: 5
-      _jumpHeight: 3
-      _jumpHeightBonusWhenFalling: 1
-      _jumpHeightBonusSpeedThreshold: 10
-  _ignorePlayer: 0
-  _giveDOT: 0
-  _DOTDamage:
-    _damageValue: 1
-    _bump:
-      enabled: 1
-      _maximumAllowedForces: 1
-      cubeController: {fileID: 0}
-      displacementEstimationUpdater: {fileID: 0}
-      _gravityScale: 5
-      _jumpHeight: 3
-      _jumpHeightBonusWhenFalling: 1
-      _jumpHeightBonusSpeedThreshold: 10
-  _DOTRate: 0.5
 --- !u!65 &1155923838291153440
 BoxCollider:
   m_ObjectHideFlags: 0
