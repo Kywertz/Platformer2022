@@ -844,7 +844,6 @@ GameObject:
   - component: {fileID: 8141038425356912782}
   - component: {fileID: 8141038425356912778}
   - component: {fileID: 8141038425009169253}
-  - component: {fileID: 8141038425009169250}
   - component: {fileID: 8141038425009169251}
   - component: {fileID: 8141038425009169249}
   - component: {fileID: 8141038425009169050}
@@ -1573,21 +1572,6 @@ MonoBehaviour:
   _inputActionmap: {fileID: 11400000, guid: c09234a8f61ef3644b43e46ebd9e6d06, type: 2}
   _playercontroller: {fileID: 3763121640540506119}
   _pushpullforce: 5
---- !u!114 &8141038425009169250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8095781149769515256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b8090cf436ce2c4b87b8a8510f3c83d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerReferences: {fileID: 8780626866446036665}
-  _endJumpDownwardSpeedThresholdWhenGrounded: 5
-  _displacementEstimationUpdater: {fileID: 8141038426178343141}
 --- !u!114 &8141038425009169251
 MonoBehaviour:
   m_ObjectHideFlags: 0
