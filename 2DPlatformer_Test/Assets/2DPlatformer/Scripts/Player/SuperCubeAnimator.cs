@@ -72,7 +72,7 @@ namespace GSGD2.Player
                 case CubeController.State.Jumping:
                     {
                         _animator.SetTrigger("Jumping");
-                       
+                        //_animator.SetTrigger("Falling");
                     }
                     break;
                 case CubeController.State.EndJump:
