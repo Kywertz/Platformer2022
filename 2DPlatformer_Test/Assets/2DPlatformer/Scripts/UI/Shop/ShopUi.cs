@@ -38,6 +38,9 @@ namespace GSGD2.Gameplay
 
         public bool _upgradetaken = true;
 
+        [SerializeField]
+        private GameObject _projectilelauncher = null;
+
         public void TryAddJumpForce(int removedloot)
         {
             //verifier si le loot n'est pas égale à zéro ou est au dessus de la valeure demander par le shop avant d'apply
@@ -57,7 +60,8 @@ namespace GSGD2.Gameplay
         {
 
             _upgradetaken = true;
-            Destroy(_childrenPrefab);
+            _projectilelauncher.SetActive(true);
+            //Destroy(_childrenPrefab);
         }
 
 
