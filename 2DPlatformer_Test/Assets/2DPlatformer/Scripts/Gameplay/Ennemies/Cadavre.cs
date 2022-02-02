@@ -49,7 +49,7 @@ namespace GSGD2.Gameplay
         {
             
             LevelReferences.Instance.SpellManager.AddSpell(1);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
 
         }
 
