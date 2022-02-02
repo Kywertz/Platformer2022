@@ -679,7 +679,7 @@ MonoBehaviour:
   _redirectProjectileTriggerEvent: {fileID: 1611766449663010768}
   _destroyOnCollisionTriggerEvent: {fileID: 1789151957593289448}
   _destroyOnCollision: 1
-  lifeSpan: 10
+  lifeSpan: 0.5
   redirectProjectile: 1
   _speed: 20
 --- !u!114 &-5518989710583570206
@@ -714,8 +714,7 @@ MonoBehaviour:
     _damageValue: 1
     _bump:
       enabled: 1
-      _maximumAllowedForcesWhileInAir: 1
-      resetVelocityWhenApplyingForceWhileInAir: 1
+      _maximumAllowedForces: 1
       cubeController: {fileID: 0}
       displacementEstimationUpdater: {fileID: 0}
       _gravityScale: 5
@@ -728,8 +727,7 @@ MonoBehaviour:
     _damageValue: 1
     _bump:
       enabled: 1
-      _maximumAllowedForcesWhileInAir: 1
-      resetVelocityWhenApplyingForceWhileInAir: 1
+      _maximumAllowedForces: 1
       cubeController: {fileID: 0}
       displacementEstimationUpdater: {fileID: 0}
       _gravityScale: 5
