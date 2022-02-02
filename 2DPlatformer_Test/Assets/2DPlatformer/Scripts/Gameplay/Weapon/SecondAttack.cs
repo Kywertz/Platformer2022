@@ -26,11 +26,13 @@ namespace GSGD2.Gameplay
                 _inputaction.performed -= SecondAttack_Performed;
                 _inputaction.performed += SecondAttack_Performed;
             }
+            _inputaction.Enable();
         }
 
         private void OnDisable()
         {
-            
+            _inputaction.performed -= SecondAttack_Performed;
+            _inputaction.Disable();
         }
 
         private void SecondAttack_Performed(InputAction.CallbackContext obj)

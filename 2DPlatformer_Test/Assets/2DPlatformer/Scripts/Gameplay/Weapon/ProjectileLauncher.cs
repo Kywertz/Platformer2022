@@ -14,9 +14,6 @@
         private AProjectile _projectilePrefab = null;
 
         [SerializeField]
-        private AProjectile _projectileRatUpgrade = null;
-
-        [SerializeField]
         private InputActionMapWrapper _inputActionmap = null;
 
         private InputAction _abilityImproverInteractionInputAction = null;
@@ -98,34 +95,21 @@
                 }
             }
 
-            if (CanUse() == true && _shopui._upgradetaken == true)
-            {
-                AProjectile instance = Instantiate(_projectileRatUpgrade, _projectileInstanceOffset.transform.position, _projectileInstanceOffset.transform.rotation);
-                _projectileFireRate.Start();
-
-                instance.SetInteractWith(_projectileInteractWith);
-                if (instance.TryGetComponent(out DamageDealer damageDealer) == true)
-                {
-                    damageDealer.SetInstigator(this);
-                    damageDealer.SetInteractWith(_damageDealerInteractWith);
-                }
-                _firsttimechanged = true;
-            }
         }
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            Debug.Log("Change SECOND ATTACK");
-            if (_shopui._upgradetaken == true && _firsttimechanged == true)
-            {
-                _shopui._upgradetaken = false;
-            }
+            //Debug.Log("Change SECOND ATTACK");
+            //if (_shopui._upgradetaken == true && _firsttimechanged == true)
+            //{
+            //    _shopui._upgradetaken = false;
+            //}
 
-            if (_shopui._upgradetaken == false && _firsttimechanged == true)
-            {
-                _shopui._upgradetaken = true;
+            //if (_shopui._upgradetaken == false && _firsttimechanged == true)
+            //{
+            //    _shopui._upgradetaken = true;
 
-            }
-
+            //}
+            gameObject.SetActive(false);
         }
 
         Transform IDamageInstigator.GetTransform() => transform;
