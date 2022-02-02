@@ -25,14 +25,6 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    - m_Name: SeconAttackInput
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 3d0782a0-c82b-4bac-81cc-af008cedcbf4
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 62d8b51f-adfa-4496-8641-0f81dd4219ea
@@ -43,10 +35,10 @@ MonoBehaviour:
       m_Action: SwitchUpgradeAttack
       m_Flags: 0
     - m_Name: 
-      m_Id: 4dc4bb70-487d-49a6-b96c-4a1ebc06d373
-      m_Path: <Keyboard>/w
+      m_Id: c5ce360e-2bad-47a2-9013-315b1adf92da
+      m_Path: <Gamepad>/rightShoulder
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: SeconAttackInput
+      m_Action: SwitchUpgradeAttack
       m_Flags: 0
