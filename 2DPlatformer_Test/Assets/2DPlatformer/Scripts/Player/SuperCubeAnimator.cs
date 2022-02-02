@@ -27,16 +27,16 @@ namespace GSGD2.Player
 
         private void OnEnable()
         {
-            //verif que je suis bien debrancher de l'event
+           
             _cubeController.StateChanged -= _cubeController_StateChanged;
-            // branche a l'event
+           
             _cubeController.StateChanged += _cubeController_StateChanged;
         }
 
 
         private void OnDisable()
         {
-            // je me debranche de l'event
+          
             _cubeController.StateChanged -= _cubeController_StateChanged;
         }
         private void _cubeController_StateChanged(CubeController cubeController, CubeController.CubeControllerEventArgs args)
@@ -53,21 +53,33 @@ namespace GSGD2.Player
                         if (downwardVelocityBelowThreshold == true)
                         {
                             _animator.SetTrigger("EndJump");
+                            
                         }
                     }
                     break;
                 case CubeController.State.Falling:
+                    {
+                        _animator.SetTrigger("Falling");
+                    }
                     break;
                 case CubeController.State.Bumping:
                     break;
                 case CubeController.State.StartJump:
+                    {
+                        //_animator.SetTrigger("Jumping");
+                    }
                     break;
                 case CubeController.State.Jumping:
                     {
                         _animator.SetTrigger("Jumping");
+                       
                     }
                     break;
                 case CubeController.State.EndJump:
+                    {
+
+                        //_animator.SetTrigger("EndJump");
+                    }
                     break;
                 case CubeController.State.WallGrab:
                     break;
