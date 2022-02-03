@@ -7,11 +7,14 @@ namespace GSGD2.Gameplay
     public class PnjAnimator : MonoBehaviour
     {
 
-        [SerializeField]
-        private GameObject _rig = null;
+        //[SerializeField]
+        //private GameObject _rig = null;
 
         [SerializeField]
         private Animator _animator = null;
+
+        //[SerializeField]
+        //private GameObject _ennemiePrefab = null;
 
         [SerializeField]
         private Ennemies _ennemie = null;
@@ -34,7 +37,7 @@ namespace GSGD2.Gameplay
         {
             print("Dead");
             _animator.SetTrigger("Dead");
-            //_rig.transform.position = new Vector3(0,0,gameObject.transform.position.z);
+           
             _stopmoving = true;
             _isdead = true;
         }
@@ -43,7 +46,7 @@ namespace GSGD2.Gameplay
         private void Update()
         {
 
-            _rig.transform.position = /*new Vector3(0, 0, 0);*/ _ennemie.gameObject.transform.position;
+            
 
             if (_isdead == true)
             {
