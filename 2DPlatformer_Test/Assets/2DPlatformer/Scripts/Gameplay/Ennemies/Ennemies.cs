@@ -43,9 +43,10 @@ namespace GSGD2.Gameplay
 
         private void Update()
         {
+           
 
-            if (_pnjanimator._stopmoving == false)
-            {
+            
+            
                 // Sensor qu' est ce qui se passe ?
                 bool isItAWall = false;
                 bool wallRaycastResult = Physics.Raycast(fromTransform.position, fromTransform.forward, out RaycastHit wallHit, _wallMaxDistance, _wallLayer);
@@ -90,6 +91,8 @@ namespace GSGD2.Gameplay
                 bool hasFoundPlayer = hasFoundPlayerBehind || hasFoundPlayerInFrontOf;
                 foundPlayerTest = hasFoundPlayer;
 
+            if (_pnjanimator._stopmoving == false) 
+            {
 
                 // Execution qu'est ce qu'on fait 
                 if (hasFoundPlayer == true)
@@ -142,6 +145,11 @@ namespace GSGD2.Gameplay
                     }
                 }
             }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, 3f, transform.position.z);
+            }
+            
 
            
 
