@@ -47,7 +47,6 @@ namespace GSGD2.Gameplay
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            
             LevelReferences.Instance.SpellManager.AddSpell(1);
             Destroy(this.gameObject);
 
