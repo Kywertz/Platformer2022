@@ -38,106 +38,112 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private GameObject _cadavretospawn = null;
 
+        [SerializeField]
+        PnjAnimator _pnjanimator = null;
+
         private void Update()
         {
 
-            
-
-            // Sensor qu' est ce qui se passe ?
-            bool isItAWall = false;
-            bool wallRaycastResult = Physics.Raycast(fromTransform.position, fromTransform.forward, out RaycastHit wallHit, _wallMaxDistance, _wallLayer);
-            Debug.DrawLine(fromTransform.position, fromTransform.position + fromTransform.forward * _wallMaxDistance);
-
-            if (wallRaycastResult == true)
+            if (_pnjanimator._stopmoving == false)
             {
-                isItAWall = Vector3.Dot(wallHit.normal, -transform.forward) == 1;
-            }
+                // Sensor qu' est ce qui se passe ?
+                bool isItAWall = false;
+                bool wallRaycastResult = Physics.Raycast(fromTransform.position, fromTransform.forward, out RaycastHit wallHit, _wallMaxDistance, _wallLayer);
+                Debug.DrawLine(fromTransform.position, fromTransform.position + fromTransform.forward * _wallMaxDistance);
 
-            bool hasFoundPlayerInFrontOf = false;
-            bool hasFoundPlayerBehind = false;
-
-
-            // Conditions qu'est ce qu' on doit faire ?
-            RaycastHit hit;
-            if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.position, out hit, 0.1f, _layer))
-            {
-                //Debug.LogFormat("{0}", hit);
-                if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
+                if (wallRaycastResult == true)
                 {
-                    Debug.Log("JE TE VOIS BATARD");
-                    float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
-                    bool isPlayerIsInFrontOf = angle < 90;
-                    Debug.LogFormat("{0}", angle);
+                    isItAWall = Vector3.Dot(wallHit.normal, -transform.forward) == 1;
+                }
 
-                    if (isPlayerIsInFrontOf == true)
+                bool hasFoundPlayerInFrontOf = false;
+                bool hasFoundPlayerBehind = false;
+
+
+                // Conditions qu'est ce qu' on doit faire ?
+                RaycastHit hit;
+                if (Physics.SphereCast(fromTransform.position, _radius, fromTransform.position, out hit, 0.1f, _layer))
+                {
+                    //Debug.LogFormat("{0}", hit);
+                    if (ReferenceEquals(hit.transform, LevelReferences.Instance.Player.transform))
                     {
-                        Debug.Log("EN FACE");
-                        hasFoundPlayerInFrontOf = true;
-                        hasFoundPlayerBehind = false;
+
+                        float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
+                        bool isPlayerIsInFrontOf = angle < 90;
+                        Debug.LogFormat("{0}", angle);
+
+                        if (isPlayerIsInFrontOf == true)
+                        {
+
+                            hasFoundPlayerInFrontOf = true;
+                            hasFoundPlayerBehind = false;
+                        }
+                        else
+                        {
+
+                            hasFoundPlayerBehind = true;
+                            hasFoundPlayerInFrontOf = false;
+                        }
                     }
+                }
+
+                bool hasFoundPlayer = hasFoundPlayerBehind || hasFoundPlayerInFrontOf;
+                foundPlayerTest = hasFoundPlayer;
+
+
+                // Execution qu'est ce qu'on fait 
+                if (hasFoundPlayer == true)
+                {
+                    Debug.LogFormat("HasFoundPlayer infront:{0} | behind:{1}", hasFoundPlayerInFrontOf, hasFoundPlayerBehind);
+
+                    Vector3 direction = new Vector3(0, 0, (LevelReferences.Instance.Player.transform.position - transform.position).z);
+
+                    if (hasFoundPlayerBehind == true)
+                    {
+
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                        //hasFoundPlayerInFrontOf = false;
+                    }
+                    else if (hasFoundPlayerInFrontOf == true)
+                    {
+
+
+
+
+                    }
+
+
+                    if (isItAWall == true)
+                    {
+
+                    }
+
                     else
                     {
-                        Debug.Log("DERRIERE");
-                        hasFoundPlayerBehind = true;
-                        hasFoundPlayerInFrontOf = false;
+
+                        transform.position += (direction).normalized * _speed * Time.deltaTime;
+                    }
+                }
+                else
+                {
+
+                    if (isItAWall == true)
+                    {
+
+                        transform.rotation *= Quaternion.Euler(0, 180, 0);
+                        transform.position += transform.forward * Time.deltaTime * _speed;
+                    }
+
+                    else
+                    {
+
+                        transform.position += transform.forward * Time.deltaTime * _speed;
                     }
                 }
             }
 
-            bool hasFoundPlayer = hasFoundPlayerBehind || hasFoundPlayerInFrontOf;
-            foundPlayerTest = hasFoundPlayer;
-
-
-            // Execution qu'est ce qu'on fait 
-            if (hasFoundPlayer == true)
-            {
-                Debug.LogFormat("HasFoundPlayer infront:{0} | behind:{1}", hasFoundPlayerInFrontOf, hasFoundPlayerBehind);
-
-                Vector3 direction = new Vector3(0, 0, (LevelReferences.Instance.Player.transform.position - transform.position).z);
-
-                if (hasFoundPlayerBehind == true)
-                {
-                    Debug.Log("derriere se retourne");
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
-
-                    //hasFoundPlayerInFrontOf = false;
-                }
-                else if (hasFoundPlayerInFrontOf == true)
-                {
-                    Debug.Log("EN FACE");
-                   
-
-                    //hasFoundPlayerBehind = false;
-                }
-
-                // player true + wall true
-                if (isItAWall == true)
-                {
-                
-                }
-                // player true + wall false
-                else
-                {
-                    //Debug.Log("Player treu  + wall false");
-                    transform.position += (direction).normalized * _speed * Time.deltaTime;
-                }
-            }
-            else
-            {
-                // player false + wall true
-                if (isItAWall == true)
-                {
-                   // Debug.Log("Player false  + wall true");
-                    transform.rotation *= Quaternion.Euler(0, 180, 0);
-                     transform.position += transform.forward * Time.deltaTime * _speed;
-                }
-                // player false + wall false
-                else
-                {
-                    //Debug.Log("Player false  + wall false");
-                    transform.position += transform.forward * Time.deltaTime * _speed;
-                }
-            }
+           
 
         }
 
@@ -151,6 +157,7 @@ namespace GSGD2.Gameplay
             Instantiate(_cadavretospawn, _offset.transform.position, _offset.transform.rotation);
             gameObject.SetActive(false);
             _isdead = true;
+            print("yes i");
         }
 
         

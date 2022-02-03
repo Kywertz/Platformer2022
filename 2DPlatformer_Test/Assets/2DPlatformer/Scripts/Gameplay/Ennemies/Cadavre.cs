@@ -5,6 +5,7 @@ namespace GSGD2.Gameplay
     using UnityEngine;
     using UnityEngine.InputSystem;
     using GSGD2.Player;
+    using GSGD2.Player;
 
 
     public class Cadavre : MonoBehaviour
@@ -22,14 +23,7 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            if (_actiontoinput.TryFindAction("AbilityImproverInteraction", out _inputaction) == true)
-            {
-                _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
-                _inputaction.performed += AbilityImproverInteractionInputAction_performed;
-
-            }
-
-            _inputaction.Enable();
+         
 
         }
 
@@ -56,11 +50,19 @@ namespace GSGD2.Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other = LevelReferences.Instance.Player.Collider)
+
+            if (other == LevelReferences.Instance.Player.Collider)
             {
                 
                 _canvas.SetActive(true);
+                if (_actiontoinput.TryFindAction("AbilityImproverInteraction", out _inputaction) == true)
+                {
+                    _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
+                    _inputaction.performed += AbilityImproverInteractionInputAction_performed;
 
+                }
+
+                _inputaction.Enable();
 
             }
         }
