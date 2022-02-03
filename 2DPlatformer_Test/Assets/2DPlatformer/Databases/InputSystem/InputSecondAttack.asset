@@ -50,3 +50,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: SeconAttackInput
       m_Flags: 0
+    - m_Name: 
+      m_Id: 5572802d-8f47-4ae2-9288-fb69993fe13e
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SeconAttackInput
+      m_Flags: 0

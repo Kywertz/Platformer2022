@@ -30,6 +30,8 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private GameObject _buttonFocus = null;
 
+        private bool _isPaused = false;
+
         private void OnEnable()
         {
 
@@ -42,48 +44,40 @@ namespace GSGD2.Gameplay
 
             _pauseability.Enable();
 
-
         }
 
         private void OnDisable()
         {
-            Time.timeScale = 1;
-
-            if (ApplicationExtension.IsPlaying == true)
-            {
-                _pauseability.performed -= Pauseability_performed;
-                _pauseability.Disable();
-            }
+            _pauseability.performed -= Pauseability_performed;
+            _pauseability.Disable();
         }
-
-
 
         public void Continue()
         {
             Time.timeScale = 1;
             _hlayoutofpause.SetActive(false);
-
+            _isPaused = false;
         }
         private void Pauseability_performed(InputAction.CallbackContext obj)
         {
-            Debug.Log("Test pause input");
-            //verif si enter et si + 0 $ avec spot puis affiche l'ui du shop
-            bool isLayoutActive = _hlayoutofpause.activeSelf;
-
-            if (isLayoutActive == true)
+            SetPause();
+            print(_isPaused);
+        }
+        private void SetPause()
+        {
+            if (_isPaused == false)
             {
-                Time.timeScale = 1;
-                _hlayoutofpause.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(_buttonFocus.gameObject);
+                Time.timeScale = 0;
+                _hlayoutofpause.gameObject.SetActive(true);
+                _isPaused = true;
             }
             else
             {
-                Time.timeScale = 0;
-                _hlayoutofpause.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(_buttonFocus.gameObject);
+                _isPaused = false;
+                Time.timeScale = 1;
+                _hlayoutofpause.gameObject.SetActive(false);
             }
-
         }
-
-
     }
 }
