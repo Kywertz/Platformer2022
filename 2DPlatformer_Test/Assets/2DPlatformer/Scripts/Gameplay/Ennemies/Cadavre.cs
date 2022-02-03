@@ -17,23 +17,25 @@ namespace GSGD2.Gameplay
 
         private InputAction _inputaction;
 
+        private bool _enteroncollider = false;
+
         [SerializeField]
         private InputActionMapWrapper _actiontoinput = null;
 
 
         private void OnEnable()
         {
-         
+
 
         }
 
 
         private void OnDisable()
         {
-          
-            
-             _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
-             _inputaction.Disable();
+
+
+            _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
+            _inputaction.Disable();
 
             _canvas.SetActive(false);
         }
@@ -41,8 +43,12 @@ namespace GSGD2.Gameplay
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            LevelReferences.Instance.SpellManager.AddSpell(1);
-            Destroy(this.gameObject);
+            if (_enteroncollider == true)
+            {
+
+                LevelReferences.Instance.SpellManager.AddSpell(1);
+                Destroy(this.gameObject);
+            }
 
         }
 
@@ -52,16 +58,16 @@ namespace GSGD2.Gameplay
 
             if (other == LevelReferences.Instance.Player.Collider)
             {
-                
+                _enteroncollider = true;
                 _canvas.SetActive(true);
                 if (_actiontoinput.TryFindAction("AbilityImproverInteraction", out _inputaction) == true)
                 {
                     _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
                     _inputaction.performed += AbilityImproverInteractionInputAction_performed;
-
+                    _inputaction.Enable();
                 }
 
-                _inputaction.Enable();
+
 
             }
         }
@@ -74,7 +80,7 @@ namespace GSGD2.Gameplay
                 //LevelReferences.Instance.SpellManager.AddSpell(1);
                 // Destroy(gameObject);
                 _canvas.SetActive(false);
-
+                _enteroncollider = false;
 
             }
         }
