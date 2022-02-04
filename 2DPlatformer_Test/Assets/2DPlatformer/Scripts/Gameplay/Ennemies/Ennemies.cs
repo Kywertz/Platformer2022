@@ -147,7 +147,7 @@ namespace GSGD2.Gameplay
             }
             else
             {
-                transform.position = new Vector3(transform.position.x, 3f, transform.position.z);
+                //transform.position = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z);
             }
             
 
