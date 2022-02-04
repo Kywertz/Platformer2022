@@ -12,16 +12,19 @@ namespace GSGD2.Gameplay
         private bool _istaken = false;
         private bool _isentered = false;
 
-        
-
+       
+        [SerializeField]
+        private Animator _animator;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other == LevelReferences.Instance.Player.Collider)
             {
-                _istaken = true;
 
+
+                _istaken = true;
                 _isentered = true;
+                _animator.SetTrigger("Walking");
                 transform.position = _transformoffset.position;
             }
 
