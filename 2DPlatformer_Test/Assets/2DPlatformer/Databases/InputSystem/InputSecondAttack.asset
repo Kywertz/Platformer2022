@@ -43,6 +43,22 @@ MonoBehaviour:
       m_Action: SwitchUpgradeAttack
       m_Flags: 0
     - m_Name: 
+      m_Id: 8e40a6aa-f464-4018-ad97-44bd164364bd
+      m_Path: <Gamepad>/dpad/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SwitchUpgradeAttack
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 91e0dcc1-35be-408e-b582-14fdef9445ab
+      m_Path: <Gamepad>/dpad/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SwitchUpgradeAttack
+      m_Flags: 0
+    - m_Name: 
       m_Id: 4dc4bb70-487d-49a6-b96c-4a1ebc06d373
       m_Path: <Keyboard>/j
       m_Interactions: 
