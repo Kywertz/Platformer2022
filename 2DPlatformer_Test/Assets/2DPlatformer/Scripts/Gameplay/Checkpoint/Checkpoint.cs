@@ -132,7 +132,7 @@ namespace GSGD2.Gameplay
 
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            
+            print("Work");
             if (_isentered == true)
             {
                 LevelReferences.Instance.PlayerStart.UpdateLastCheckpoint(this);
