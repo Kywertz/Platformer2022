@@ -82,7 +82,7 @@
 
         public void LaunchProjectile()
         {
-            if (CanUse() == true && _shopui._upgradetaken == false)
+            if (CanUse() == true)
             {
                 AProjectile instance = Instantiate(_projectilePrefab, _projectileInstanceOffset.transform.position, _projectileInstanceOffset.transform.rotation);
                 _projectileFireRate.Start();

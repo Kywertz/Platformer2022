@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416393604516653113, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
       propertyPath: m_Name
-      value: WallDestructiblewithRatUpgrade
+      value: WallDestructiblewithRatUpgrade Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4416393604516653124, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
       propertyPath: m_RootOrder
@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416393604516653124, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.63377
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4416393604516653124, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
       propertyPath: m_LocalRotation.w
