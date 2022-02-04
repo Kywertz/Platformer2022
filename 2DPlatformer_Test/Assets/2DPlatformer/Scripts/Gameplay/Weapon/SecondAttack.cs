@@ -8,6 +8,10 @@ namespace GSGD2.Gameplay
 
     public class SecondAttack : MonoBehaviour
     {
+
+        [SerializeField]
+        private UpgradeSecondAttack _upgradeSecondAttack = null;
+
         [SerializeField]
         Projectile _rattolunch = null;
 
@@ -37,8 +41,11 @@ namespace GSGD2.Gameplay
 
         private void SecondAttack_Performed(InputAction.CallbackContext obj)
         {
+            if (_upgradeSecondAttack._desactivated == true)
+            {
+                 Shoot();
+            }
 
-            Shoot();
         }
 
 

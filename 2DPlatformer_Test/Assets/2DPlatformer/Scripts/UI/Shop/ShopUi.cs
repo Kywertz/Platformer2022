@@ -22,6 +22,7 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private LootHUD _loothud = null;
 
+
         [SerializeField]
         private GameObject _buttonFocus = null;
 
@@ -36,7 +37,7 @@ namespace GSGD2.Gameplay
         public bool _upgradetaken = false;
 
         [SerializeField]
-        private GameObject _projectilelauncher = null;
+        private GameObject _flute = null;
 
         public void TryAddJumpForce(int removedloot)
         {
@@ -60,7 +61,8 @@ namespace GSGD2.Gameplay
         {
 
             _upgradetaken = true;
-            _projectilelauncher.SetActive(true);
+            _flute.SetActive(true);
+            //_projectilelaucheritem.CurrentState = Item.State.Held;
             //Destroy(_childrenPrefab);
         }
 
