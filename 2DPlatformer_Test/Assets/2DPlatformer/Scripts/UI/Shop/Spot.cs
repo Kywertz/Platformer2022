@@ -11,16 +11,11 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private ShopUi _shopui = null;
 
-        [SerializeField]
-        private GameObject _buttonFocus = null;
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponentInParent<PlayerReferences>() == true)
             {
                 _shopui.gameObject.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(_buttonFocus.gameObject);
-
             }
         }
 

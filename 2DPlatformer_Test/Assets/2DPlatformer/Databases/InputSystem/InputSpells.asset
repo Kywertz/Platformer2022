@@ -66,3 +66,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: HealSpell
       m_Flags: 0
+    - m_Name: 
+      m_Id: cdc0bf8f-10f8-4198-94ab-e85fdfe0bc2c
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: HealSpell
+      m_Flags: 0
