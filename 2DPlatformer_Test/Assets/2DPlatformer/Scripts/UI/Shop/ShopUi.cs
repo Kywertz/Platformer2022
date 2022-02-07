@@ -17,10 +17,7 @@ namespace GSGD2.Gameplay
         private GameObject _shop = null;
         [SerializeField]
         private GameObject _text = null;
-        [SerializeField]
-        private PickupCommand _pickupCommand = null;
-        [SerializeField]
-        private LootHUD _loothud = null;
+
 
 
         [SerializeField]
@@ -31,13 +28,12 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private CubeController _cubeController = null;
 
-        [SerializeField]
-        private GameObject _childrenPrefab = null;
+
 
         public bool _upgradetaken = false;
 
         [SerializeField]
-        private GameObject _flute = null;
+        private GameObject _fluteswitcher = null;
 
         public void TryAddJumpForce(int removedloot)
         {
@@ -61,7 +57,7 @@ namespace GSGD2.Gameplay
         {
 
             _upgradetaken = true;
-            _flute.SetActive(true);
+            //_fluteswitcher.set(true);
             //_projectilelaucheritem.CurrentState = Item.State.Held;
             //Destroy(_childrenPrefab);
         }

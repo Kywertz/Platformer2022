@@ -588,8 +588,8 @@ namespace GSGD2.Player
 					break;
 				case State.StartJump:
 				{
-						
-                        
+                        //LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._jump);
+
                 }
                     break;
 				case State.Jumping:
@@ -597,7 +597,7 @@ namespace GSGD2.Player
 				case State.EndJump:
                     {
 						
-                    }
+					}
 					break;
 				case State.WallGrab:
 					break;
@@ -609,13 +609,14 @@ namespace GSGD2.Player
 				case State.Dashing:
 				{
 					_dash.EndDash(_rigidbody);
-
-					_characterCollision.ResetMaxDistances();
+						LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._dash);
+						_characterCollision.ResetMaxDistances();
 				}
 				break;
 				case State.DamageTaken:
 				{
 					_disableControlWhenDamageTaken.ForceFinishState();
+					LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._takingDamage);
 				}
 				break;
 				default: break;
@@ -631,6 +632,7 @@ namespace GSGD2.Player
 				case State.Grounded:
 				{
 					ResetCurrentValues();
+						LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._landing);
 				}
 				break;
 				case State.Falling:

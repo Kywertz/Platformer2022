@@ -57,6 +57,7 @@ namespace GSGD2.Gameplay
         public void Shoot()
         {
             Instantiate(_rattolunch, _offset.transform.position, transform.rotation);
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ratlaunch);
         }
 
        

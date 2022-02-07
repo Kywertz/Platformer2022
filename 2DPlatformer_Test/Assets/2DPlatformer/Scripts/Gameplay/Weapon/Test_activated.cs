@@ -40,6 +40,7 @@ namespace GSGD2.Gameplay
         private void _action_performed(InputAction.CallbackContext obj)
         {
             Instantiate(_ratToLunch, _offsetOfThePlayer.transform.position, transform.rotation);
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ratlaunch);
         }
 
         private void Update()

@@ -45,6 +45,10 @@ namespace GSGD2
 		[SerializeField]
 		private EnnemiesManager _ennemiesManager = null;
 
+		[SerializeField]
+		private SoundManager _soundManager = null;
+
+		public SoundManager SoundManager => _soundManager;
 		public SpellManager SpellManager => _spellmanager;
 		public PlayerReferences PlayerReferences => _playerReferences;
 		public CubeController Player => _player;

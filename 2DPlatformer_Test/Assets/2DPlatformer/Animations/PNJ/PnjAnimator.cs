@@ -76,7 +76,7 @@ namespace GSGD2.Gameplay
                 _timeofanimation -= Time.deltaTime;
             }
 
-            if (_timeofanimation < 0)
+            if (_timeofanimation == 0 || _timeofanimation < 0)
             {
                 print("spawn");
                 _ennemie.SpawnCadavre();
