@@ -43,19 +43,19 @@ namespace GSGD2.Gameplay
         {
 
             _mapwrapper.TryFindAction(_testInput, out _testInputAction, true);
-            //if (_mapwrapper.TryFindAction("SeconAttackInput", out _testInputAction) == true)
-            //{
-            //    _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
-            //    _testInputAction.performed += AbilityImproverInteractionInputAction_performed;
-            //    _testInputAction.Enable();
-            //}
-            //if (_mapwrapper.TryFindAction("SwitchUpgradeAttack", out _secondInputAction) == true)
-            //{
-            //    _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
-            //    _testInputAction.Disable();
-            //    _testInputAction.performed += OtherInputAction_performed;
-            //    _secondInputAction.Enable();
-            //}
+            if (_mapwrapper.TryFindAction("SeconAttackInput", out _testInputAction) == true)
+            {
+                _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
+                _testInputAction.performed += AbilityImproverInteractionInputAction_performed;
+                _testInputAction.Enable();
+            }
+            if (_mapwrapper.TryFindAction("SwitchUpgradeAttack", out _secondInputAction) == true)
+            {
+                _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
+                _testInputAction.Disable();
+                _testInputAction.performed += OtherInputAction_performed;
+                _secondInputAction.Enable();
+            }
 
         }
 
@@ -66,19 +66,19 @@ namespace GSGD2.Gameplay
                 _currentRotation += (transform.rotation.x + _rotation) * VerAxis;
                 transform.rotation = Quaternion.Euler(_currentRotation, 0, 0);
 
-                //if (_mapwrapper.TryFindAction("SeconAttackInput", out _testInputAction) == true)
-                //{
-                //    _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
-                //    _testInputAction.performed += AbilityImproverInteractionInputAction_performed;
-                //    _testInputAction.Enable();
-                //}
-                //if (_mapwrapper.TryFindAction("SwitchUpgradeAttack", out _secondInputAction) == true)
-                //{
-                //    _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
-                //    _testInputAction.Disable();
-                //    _testInputAction.performed += OtherInputAction_performed;
-                //    _secondInputAction.Enable();
-                //}
+                if (_mapwrapper.TryFindAction("SeconAttackInput", out _testInputAction) == true)
+                {
+                    _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
+                    _testInputAction.performed += AbilityImproverInteractionInputAction_performed;
+                    _testInputAction.Enable();
+                }
+                if (_mapwrapper.TryFindAction("SwitchUpgradeAttack", out _secondInputAction) == true)
+                {
+                    _testInputAction.performed -= AbilityImproverInteractionInputAction_performed;
+                    _testInputAction.Disable();
+                    _testInputAction.performed += OtherInputAction_performed;
+                    _secondInputAction.Enable();
+                }
             }
         }
 

@@ -49,14 +49,14 @@
 
         private void OnEnable()
         {
-            if (_inputActionmap.TryFindAction("SwitchUpgradeAttack", out _abilityImproverInteractionInputAction) == true)
-            {
-                _abilityImproverInteractionInputAction.performed -= AbilityImproverInteractionInputAction_performed;
-                _abilityImproverInteractionInputAction.performed += AbilityImproverInteractionInputAction_performed;
+            //if (_inputActionmap.TryFindAction("SwitchUpgradeAttack", out _abilityImproverInteractionInputAction) == true)
+            //{
+            //    _abilityImproverInteractionInputAction.performed -= AbilityImproverInteractionInputAction_performed;
+            //    _abilityImproverInteractionInputAction.performed += AbilityImproverInteractionInputAction_performed;
 
-            }
+            //}
 
-            _abilityImproverInteractionInputAction.Enable();
+            //_abilityImproverInteractionInputAction.Enable();
 
             //GetComponentsInChildren.SetActive(false);
         }

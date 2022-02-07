@@ -9,8 +9,8 @@ namespace GSGD2.Gameplay
     public class SecondAttack : MonoBehaviour
     {
 
-        [SerializeField]
-        private UpgradeSecondAttack _upgradeSecondAttack = null;
+        //[SerializeField]
+        //private UpgradeSecondAttack _upgradeSecondAttack = null;
 
         [SerializeField]
         Projectile _rattolunch = null;
@@ -25,27 +25,32 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            if (_inputMapWrapperAttack.TryFindAction("SeconAttackInput", out _inputaction) == true)
+            if (_inputMapWrapperAttack.TryFindAction("SecondAttackDefaultInput", out _inputaction, true))
             {
                 _inputaction.performed -= SecondAttack_Performed;
                 _inputaction.performed += SecondAttack_Performed;
             }
-            _inputaction.Enable();
+            //_inputaction.Enable();
+            Debug.Log("OnEnable");
         }
 
         private void OnDisable()
         {
             _inputaction.performed -= SecondAttack_Performed;
             _inputaction.Disable();
+            Debug.Log("OnDisable");
         }
 
         private void SecondAttack_Performed(InputAction.CallbackContext obj)
         {
-            if (_upgradeSecondAttack._desactivated == true)
-            {
-                 Shoot();
-            }
+            //if (_upgradeSecondAttack._desactivated == true)
+            //{
 
+
+            //}
+            Debug.Log("Performed");
+
+            Shoot();
         }
 
 

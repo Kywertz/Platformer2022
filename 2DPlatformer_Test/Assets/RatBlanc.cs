@@ -9,9 +9,11 @@ public class RatBlanc : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == _ratblancProjectile)
+        Debug.LogFormat("{0}", other.tag);
+
+        if (other.tag == "RatBlanc")
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
