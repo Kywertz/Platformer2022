@@ -14,6 +14,9 @@ namespace GSGD2.Gameplay
         private Animator _animator = null;
 
         //[SerializeField]
+        //private Damageable _damageableoftheplayer = null;
+
+        //[SerializeField]
         //private GameObject _ennemiePrefab = null;
 
         [SerializeField]
@@ -32,6 +35,24 @@ namespace GSGD2.Gameplay
 
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other == LevelReferences.Instance.Player.Collider)
+            {
+                _animator.SetTrigger("Attack");
+                //_damageableoftheplayer.TakeDamage();
+                _stopmoving = true;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other == LevelReferences.Instance.Player.Collider)
+            {
+                _animator.SetTrigger("EndAttack");
+                _stopmoving = false;
+            }
+        }
 
         public void Dead()
         {

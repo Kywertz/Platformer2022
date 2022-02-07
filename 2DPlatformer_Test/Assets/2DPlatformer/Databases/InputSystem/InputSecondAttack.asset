@@ -25,7 +25,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    - m_Name: SeconAttackInput
+    - m_Name: SecondAttackDefaultInput
       m_Type: 1
       m_ExpectedControlType: Button
       m_Id: 3d0782a0-c82b-4bac-81cc-af008cedcbf4
@@ -33,10 +33,18 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    - m_Name: Ver
+    - m_Name: SecondAttackVerticalDirection
       m_Type: 1
       m_ExpectedControlType: Button
       m_Id: 0e5000cc-5a88-43ac-bbb5-d90ee369e958
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: SecondAttackHorizontalDirection
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 01751630-475f-4c77-82e7-5f5a07ae9283
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -72,7 +80,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: SeconAttackInput
+      m_Action: SecondAttackDefaultInput
       m_Flags: 0
     - m_Name: 
       m_Id: 5572802d-8f47-4ae2-9288-fb69993fe13e
@@ -80,7 +88,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: SeconAttackInput
+      m_Action: SecondAttackDefaultInput
       m_Flags: 0
     - m_Name: 
       m_Id: a1ba4b63-aedc-4bc3-96d1-1314fda9fe42
@@ -88,7 +96,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Ver
+      m_Action: SecondAttackVerticalDirection
       m_Flags: 0
     - m_Name: 1D Axis
       m_Id: c406431f-3fa7-401a-ab02-ecb641255d30
@@ -96,7 +104,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Ver
+      m_Action: SecondAttackVerticalDirection
       m_Flags: 4
     - m_Name: negative
       m_Id: 30c47a3f-591d-477b-b05e-2a51046c1713
@@ -104,7 +112,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Ver
+      m_Action: SecondAttackVerticalDirection
       m_Flags: 8
     - m_Name: positive
       m_Id: c5c1996d-555f-4172-9391-d3dfc2a12064
@@ -112,5 +120,37 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Ver
+      m_Action: SecondAttackVerticalDirection
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 70756113-7a5d-487e-acb9-8977678f8660
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondAttackHorizontalDirection
+      m_Flags: 0
+    - m_Name: 1D Axis
+      m_Id: 12f072b9-d48b-4d5c-bb66-07d5db7e5eea
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondAttackHorizontalDirection
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 8f381f9c-1799-434a-b576-062ba3f4bcfd
+      m_Path: <Gamepad>/rightStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondAttackHorizontalDirection
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 6cc5aa34-eab7-40df-ae60-15f889657e96
+      m_Path: <Gamepad>/rightStick/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: SecondAttackHorizontalDirection
       m_Flags: 8
