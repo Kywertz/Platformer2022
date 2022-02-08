@@ -57,7 +57,7 @@ namespace GSGD2.Gameplay
 
         public void Dead()
         {
-            print("Dead");
+            
             _animator.SetTrigger("Dead");
             LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._deathOfEnnemies);
             _stopmoving = true;
