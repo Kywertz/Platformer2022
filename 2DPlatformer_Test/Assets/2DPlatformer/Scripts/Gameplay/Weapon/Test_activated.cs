@@ -20,6 +20,9 @@ namespace GSGD2.Gameplay
         [SerializeField]
         GameObject _offsetOfThePlayer = null;
 
+        [SerializeField]
+        private ParticleSystem _particleSystem = null;
+
         private void OnEnable()
         {
 
@@ -41,7 +44,7 @@ namespace GSGD2.Gameplay
         {
             if (LevelReferences.Instance.SpellManager.CurrentSpell > 0)
             {
-
+                
                 Instantiate(_ratToLunch, _offsetOfThePlayer.transform.position, transform.rotation);
                 LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ratlaunch);
                 LevelReferences.Instance.SpellManager.UsingSpell(1);

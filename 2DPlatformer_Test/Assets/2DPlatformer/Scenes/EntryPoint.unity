@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _loadAtOnEnable: 1
   _sceneName: MainMenu
+  _mode: 0
 --- !u!4 &252388840
 Transform:
   m_ObjectHideFlags: 0

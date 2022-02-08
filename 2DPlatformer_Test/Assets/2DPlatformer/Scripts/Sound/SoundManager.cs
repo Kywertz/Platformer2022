@@ -18,6 +18,15 @@ public class SoundManager : MonoBehaviour
     public AudioClip _landing;
     public AudioClip _dash;
     public AudioClip _walk;
+    public AudioClip _switchweapon;
+    public AudioClip _ratAttack;
+    public AudioClip _step1;
+    public AudioClip _step2;
+    public AudioClip _albinosRat;
+
+    [Header("Sound for Level")]
+    public AudioClip _levelAmbiance;
+
 
     [Header("Sound for Ennemies")]
     public AudioClip _attackofennemies;
@@ -30,9 +39,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip _cantSelect;
     public AudioClip _selectOption;
     public AudioClip _MenuTheme;
+    public AudioClip _clickOnButton;
 
     [Header("Sound for Corpses")]
     public AudioClip _interactwithCorpse;
+
 
     private void Awake()
     {

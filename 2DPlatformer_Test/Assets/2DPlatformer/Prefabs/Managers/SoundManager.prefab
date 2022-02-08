@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7721093269703793592}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.26315}
   m_Children: []
@@ -53,6 +53,12 @@ MonoBehaviour:
   _landing: {fileID: 8300000, guid: 46425e8bf20f67b459a016a24d2dc33c, type: 3}
   _dash: {fileID: 8300000, guid: 79cf4b6b16aef1841bd76b5f9734f5a4, type: 3}
   _walk: {fileID: 8300000, guid: ffeff68a6dcef8d4cbc417a472baac28, type: 3}
+  _switchweapon: {fileID: 8300000, guid: 9a959f908adf1ba4c80c7ef44093ec52, type: 3}
+  _ratAttack: {fileID: 8300000, guid: cf86cfae42ae4274cbc4e072645b23d0, type: 3}
+  _step1: {fileID: 8300000, guid: 8adb29bd8abeaf34296df9d5ac7cc1ca, type: 3}
+  _step2: {fileID: 8300000, guid: 0b7ae5622e7354c40a2a939fce34e5ab, type: 3}
+  _albinosRat: {fileID: 8300000, guid: 7361af3030538e14e980a865c9358531, type: 3}
+  _levelAmbiance: {fileID: 8300000, guid: 1b424c8ada2fca04aa1f5726d3d54282, type: 3}
   _attackofennemies: {fileID: 8300000, guid: a372fedaee1aaa44ab403dd2b3595ffc, type: 3}
   _deathOfEnnemies: {fileID: 8300000, guid: 353d7c4c7948fab47ae5848a5031161f, type: 3}
   _ennemiesTakingDamage: {fileID: 8300000, guid: fff179f60e0bcd3489c2a4dafcfd1e0d, type: 3}
@@ -61,6 +67,7 @@ MonoBehaviour:
   _cantSelect: {fileID: 8300000, guid: 44474e5548aba3c4aae54b2c2596f7f0, type: 3}
   _selectOption: {fileID: 8300000, guid: 29727d6bcadc1ec428548aab95606019, type: 3}
   _MenuTheme: {fileID: 8300000, guid: ae2de01353f4d234699e9afc24cd4ae3, type: 3}
+  _clickOnButton: {fileID: 0}
   _interactwithCorpse: {fileID: 8300000, guid: ef4676ae2d1df0d4eb0a59f1bb4b9faf, type: 3}
 --- !u!82 &7721093269703793599
 AudioSource:

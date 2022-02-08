@@ -35,6 +35,7 @@ namespace GSGD2.Gameplay
         {
             if (_ShopUi._upgradetaken == true)
             {
+                LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._switchweapon);
                 bool activeself = _secondAttack.activeSelf;
                 _secondAttack.SetActive(activeself == false);
                 _upgradeOfSecondAttack.SetActive(activeself);

@@ -57,6 +57,7 @@ namespace GSGD2.Gameplay
             Time.timeScale = 1;
             _hlayoutofpause.SetActive(false);
             _isPaused = false;
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._clickOnButton);
         }
         private void Pauseability_performed(InputAction.CallbackContext obj)
         {

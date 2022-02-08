@@ -46,6 +46,7 @@ namespace GSGD2.Gameplay
                 _shop.SetActive(false);
                 _cubeController.gameObject.SetActive(true);
                 _isShopOpen = false;
+                LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._clickOnButton);
             }
             else
             {
@@ -111,6 +112,7 @@ namespace GSGD2.Gameplay
             _shop.SetActive(false);
             _isShopOpen = false;
             _cubeController.gameObject.SetActive(true);
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._clickOnButton);
         }
         GameObject ICommandSender.GetGameObject() => gameObject;
 
