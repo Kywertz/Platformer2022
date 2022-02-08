@@ -30,34 +30,30 @@ namespace GSGD2.Gameplay
                 _inputaction.performed -= SecondAttack_Performed;
                 _inputaction.performed += SecondAttack_Performed;
             }
-            //_inputaction.Enable();
-            Debug.Log("OnEnable");
+           
         }
 
         private void OnDisable()
         {
             _inputaction.performed -= SecondAttack_Performed;
             _inputaction.Disable();
-            Debug.Log("OnDisable");
+            
         }
 
         private void SecondAttack_Performed(InputAction.CallbackContext obj)
         {
-            //if (_upgradeSecondAttack._desactivated == true)
-            //{
-
-
-            //}
-            Debug.Log("Performed");
-
+            LevelReferences.Instance.SpellManager.UsingSpell(1);
             Shoot();
+
         }
 
 
         public void Shoot()
         {
+
             Instantiate(_rattolunch, _offset.transform.position, transform.rotation);
             LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ratlaunch);
+           
         }
 
        

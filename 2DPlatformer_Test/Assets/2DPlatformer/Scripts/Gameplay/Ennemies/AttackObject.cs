@@ -1,37 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AttackObject : MonoBehaviour
+namespace GSGD2.Gameplay
 {
-    // Start is called before the first frame update
-    private float _float = 0.2f;
-    private bool _lebool = true;
-    public void DestroyMePlease()
-    {
-        _lebool = true;
-       
-    }
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-    private void Update()
+    public class AttackObject : MonoBehaviour
     {
-        
+        // Start is called before the first frame update
+        private float _float = 0.2f;
+        private bool _lebool = true;
 
-        if (_lebool == true)
+        [SerializeField]
+        private ParticleSystem _ParticleSystem = null;
+
+        public void DestroyMePlease()
         {
-            _float -= Time.deltaTime;
+            _lebool = true;
 
         }
 
-        if (_float < 0)
+        private void Update()
         {
-            Destroy(gameObject);
-            _float = 0.2f;
+            if (transform.rotation == Quaternion.Euler(0, 0, 0))
+            {
+            
+                _ParticleSystem.startRotation = 0;
+            }
+
+            if (_lebool == true)
+            {
+                _float -= Time.deltaTime;
+
+            }
+
+            if (_float < 0)
+            {
+                Destroy(gameObject);
+                _float = 0.2f;
+            }
+
         }
 
+
+
+
     }
-
-
-
 
 }

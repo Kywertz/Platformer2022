@@ -11,7 +11,12 @@
 	/// </summary>
 	public class MainMenuManager : MonoBehaviour
 	{
-		public void Quit()
+        private void Awake()
+        {
+			LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._MenuTheme);
+		}
+
+        public void Quit()
 		{
 #if UNITY_EDITOR
 			EditorApplication.isPlaying = false;

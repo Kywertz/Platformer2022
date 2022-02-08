@@ -35,6 +35,7 @@ namespace GSGD2.Utilities
 		public void LoadScene(string name, LoadSceneMode mode = LoadSceneMode.Single)
 		{
 			SceneManager.LoadSceneAsync(name, mode);
+			
 		}
 	}
 

@@ -706,7 +706,7 @@ namespace GSGD2.Player
 				break;
 				default:
 				{
-					LogError("{0}.ChangeState({0}) to an unhandled state.", GetType().Name);
+					//LogError("{0}.ChangeState({0}) to an unhandled state.", GetType().Name);
 				}
 				break;
 			}
@@ -1122,7 +1122,7 @@ namespace GSGD2.Player
 				break;
 				case State.Dashing:
 				{
-					DebugLog("while Dashing : WallLeft:{0} | WallRight:{1} | Slope:{2}", HasAWallBehindCharacter, HasAWallInFrontOfCharacter, HasASlopeInFrontOfOrBehindCharacter);
+					/*DebugLog("while Dashing : WallLeft:{0} | WallRight:{1} | Slope:{2}", HasAWallBehindCharacter, HasAWallInFrontOfCharacter, HasASlopeInFrontOfOrBehindCharacter)*/;
 
 					NullifyMovementAgainstAWallInFrontOf();
 					if (_rawInputMovement != 0 && _rawInputMovement != _dash.LastMovementDirection)

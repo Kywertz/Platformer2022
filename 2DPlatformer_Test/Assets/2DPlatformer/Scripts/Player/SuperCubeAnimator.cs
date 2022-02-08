@@ -41,7 +41,7 @@ namespace GSGD2.Player
         }
         private void _cubeController_StateChanged(CubeController cubeController, CubeController.CubeControllerEventArgs args)
         {
-            Debug.Log("SuperCubeAnimator StateChanged:{0}");
+            
 
             switch (args.currentState)
             {
@@ -66,19 +66,18 @@ namespace GSGD2.Player
                     break;
                 case CubeController.State.StartJump:
                     {
-                        //_animator.SetTrigger("Jumping");
+                       
                     }
                     break;
                 case CubeController.State.Jumping:
                     {
                         _animator.SetTrigger("Jumping");
-                        //_animator.SetTrigger("Falling");
+                        
                     }
                     break;
                 case CubeController.State.EndJump:
                     {
 
-                        //_animator.SetTrigger("EndJump");
                     }
                     break;
                 case CubeController.State.WallGrab:

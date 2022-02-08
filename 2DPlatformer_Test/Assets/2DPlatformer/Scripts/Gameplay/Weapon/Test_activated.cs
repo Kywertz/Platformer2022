@@ -22,7 +22,7 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            
+
             if (_inputActionMapWrapper.TryFindAction("SecondAttackDefaultInput", out _action, true))
             {
                 _action.performed -= _action_performed;
@@ -39,8 +39,14 @@ namespace GSGD2.Gameplay
 
         private void _action_performed(InputAction.CallbackContext obj)
         {
-            Instantiate(_ratToLunch, _offsetOfThePlayer.transform.position, transform.rotation);
-            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ratlaunch);
+            if (LevelReferences.Instance.SpellManager.CurrentSpell > 0)
+            {
+
+                Instantiate(_ratToLunch, _offsetOfThePlayer.transform.position, transform.rotation);
+                LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ratlaunch);
+                LevelReferences.Instance.SpellManager.UsingSpell(1);
+
+            }
         }
 
         private void Update()
@@ -62,6 +68,6 @@ namespace GSGD2.Gameplay
 
     }
 
-    
+
 
 }

@@ -47,6 +47,7 @@ namespace GSGD2.Gameplay
             {
 
                 LevelReferences.Instance.SpellManager.AddSpell(1);
+                LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._interactwithCorpse);
                 Destroy(this.gameObject);
             }
 

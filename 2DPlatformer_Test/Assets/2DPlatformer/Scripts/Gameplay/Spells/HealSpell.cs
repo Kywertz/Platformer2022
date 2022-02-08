@@ -12,7 +12,11 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private int _healthToChange = 1;
 
+        [SerializeField]
+        private GameObject _healVFX = null;
         private InputAction _inputaction = null;
+        private float _timeOfVfx = 1f;
+        private bool _vfxstarted = false;
 
         [SerializeField]
         private InputActionMapWrapper _inputActionmap = null;
@@ -32,13 +36,15 @@ namespace GSGD2.Gameplay
             _inputaction.performed -= PlayerControllerHealSpellPerformed;
             _inputaction.Disable();
         }
+
         private void Jsp()
         {
             if (LevelReferences.Instance.PlayerReferences.TryGetPlayerDamageable(out PlayerDamageable playerDamageable) == true)
             {
 
                 playerDamageable.RestoreHealth(_healthToChange);
-
+                _healVFX.SetActive(true);
+                _vfxstarted = true;
             }
         }
 
@@ -48,6 +54,22 @@ namespace GSGD2.Gameplay
             Jsp();
             LevelReferences.Instance.SpellManager.UsingSpell(1);
         }
+
+        private void Update()
+        {
+            if (_vfxstarted)
+            {
+                _timeOfVfx -= Time.deltaTime;
+            }
+
+            if (_timeOfVfx == 0 || _timeOfVfx < 0)
+            {
+                _healVFX.SetActive(false);
+                _vfxstarted = false;
+                _timeOfVfx = 1f;
+            }
+        }
+
     }
 
 }

@@ -56,7 +56,9 @@ namespace GSGD2.Gameplay
 			if (_resetPositionWhenHealthBelowZero == true)
 			{
 				RestoreHealth(healthAtStart);
+				LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._death);
 				LevelReferences.Instance.PlayerStart.ResetPlayerPosition();
+				
 			}
 		}
 

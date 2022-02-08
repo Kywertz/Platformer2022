@@ -40,6 +40,7 @@ namespace GSGD2.Gameplay
             if (other == LevelReferences.Instance.Player.Collider)
             {
                 _animator.SetTrigger("Attack");
+                LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._attackofennemies);
                 //_damageableoftheplayer.TakeDamage();
                 _stopmoving = true;
             }
@@ -58,7 +59,7 @@ namespace GSGD2.Gameplay
         {
             print("Dead");
             _animator.SetTrigger("Dead");
-           
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._deathOfEnnemies);
             _stopmoving = true;
             _isdead = true;
         }
@@ -72,13 +73,13 @@ namespace GSGD2.Gameplay
             if (_isdead == true)
             {
                 
-                print("Dead true");
+                
                 _timeofanimation -= Time.deltaTime;
             }
 
             if (_timeofanimation == 0 || _timeofanimation < 0)
             {
-                print("spawn");
+               
                 _ennemie.SpawnCadavre();
             }
         }

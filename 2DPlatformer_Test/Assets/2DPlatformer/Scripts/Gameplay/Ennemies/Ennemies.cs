@@ -105,7 +105,7 @@ namespace GSGD2.Gameplay
                     {
 
                         transform.rotation = Quaternion.Euler(0, 0, 0);
-
+                        LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._playerSpotted);
                         //hasFoundPlayerInFrontOf = false;
                     }
                     else if (hasFoundPlayerInFrontOf == true)
@@ -155,6 +155,11 @@ namespace GSGD2.Gameplay
 
         }
 
+        public void DamageTaken()
+        {
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._ennemiesTakingDamage);
+        }
+
         public void ReactiveUs()
         {
             gameObject.SetActive(true);
@@ -165,7 +170,7 @@ namespace GSGD2.Gameplay
             Instantiate(_cadavretospawn, _offset.transform.position, _offset.transform.rotation);
             gameObject.SetActive(false);
             _isdead = true;
-            print("yes i");
+           
         }
 
         
