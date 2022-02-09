@@ -17,6 +17,9 @@ namespace GSGD2.Gameplay
         private LayerMask _layer;
 
         [SerializeField]
+        private DamageDealer _damageDealer = null;
+
+        [SerializeField]
         private LayerMask _wallLayer;
 
         [SerializeField]
@@ -103,14 +106,16 @@ namespace GSGD2.Gameplay
 
                     if (hasFoundPlayerBehind == true)
                     {
-
+                        _damageDealer._ignorePlayer = false;
                         transform.rotation = Quaternion.Euler(0, 0, 0);
                         LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._playerSpotted);
+
                         //hasFoundPlayerInFrontOf = false;
                     }
                     else if (hasFoundPlayerInFrontOf == true)
                     {
 
+                        _damageDealer._ignorePlayer = false;
 
 
 
@@ -119,7 +124,7 @@ namespace GSGD2.Gameplay
 
                     if (isItAWall == true)
                     {
-
+                        _damageDealer._ignorePlayer = true;
                     }
 
                     else

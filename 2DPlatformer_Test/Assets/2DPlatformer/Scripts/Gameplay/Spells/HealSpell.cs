@@ -53,6 +53,7 @@ namespace GSGD2.Gameplay
 
             Jsp();
             LevelReferences.Instance.SpellManager.UsingSpell(1);
+            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._heal);
         }
 
         private void Update()

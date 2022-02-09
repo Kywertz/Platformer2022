@@ -4,15 +4,17 @@ namespace GSGD2.Gameplay
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Events;
-
+    using UnityEngine.UI;
     public class SpellManager : MonoBehaviour
     {
-        private int _currentspell = 5;
+        public int _currentspell = 5;
 
         private int _utilisationsofspells = 0;
 
         [SerializeField]
-        private int _maximumofusingspells = 5;
+        private Image _forground = null;
+
+        public  int _maximumofusingspells = 5;
         public int CurrentSpell => _currentspell;
 
         public delegate void SpellManagerEvent(SpellManager sender, int currentLoot);
@@ -25,6 +27,7 @@ namespace GSGD2.Gameplay
             {
                 _currentspell += value ;
                  SpellAdded?.Invoke(this, _currentspell);
+                _forground.fillAmount += 0.2f;
             }
 
         }
@@ -35,6 +38,7 @@ namespace GSGD2.Gameplay
             _currentspell = 5;
             SpellAdded?.Invoke(this, _currentspell);
             Debug.Log("Set Spells utilisation to 0 so u can use spells");
+            _forground.fillAmount = 1f;
         }
 
         public void UsingSpell(int value)
@@ -44,14 +48,10 @@ namespace GSGD2.Gameplay
                 _currentspell -= value;
                 SpellAdded?.Invoke(this, _currentspell);
                 _utilisationsofspells ++;
+                _forground.fillAmount -= 0.2f;
             }
         }
 
-        //public void MultiplicateLoot(int value)
-        //{
-        //    //value = _currentLoot * 2;
-        //    //LootAdded?.Invoke(this, value);
-        //    AddLoot(_currentLoot = value * 2);
-        //}
+       
     }
 }
