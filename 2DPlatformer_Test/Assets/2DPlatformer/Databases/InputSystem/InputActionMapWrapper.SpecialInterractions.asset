@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Bindings:
     - m_Name: 
       m_Id: 5e738f3b-1bf3-4f35-899c-d3944a4d9367
-      m_Path: <Keyboard>/e
+      m_Path: <Keyboard>/y
       m_Interactions: Press
       m_Processors: Normalize
       m_Groups: 

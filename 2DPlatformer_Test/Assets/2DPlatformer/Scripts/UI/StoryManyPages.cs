@@ -27,12 +27,12 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            if (_inputtodo.TryFindAction("AbilityImproverInteraction", out _inputaction) == true)
-            {
-                _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
-                _inputaction.performed += AbilityImproverInteractionInputAction_performed;
-                _inputaction.Enable();
-            }
+            //if (_inputtodo.TryFindAction("AbilityImproverInteraction", out _inputaction) == true)
+            //{
+            //    _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
+            //    _inputaction.performed += AbilityImproverInteractionInputAction_performed;
+            //    _inputaction.Enable();
+            //}
         }
 
         private void OnDisable()
@@ -45,6 +45,12 @@ namespace GSGD2.Gameplay
         {
             if (other == LevelReferences.Instance.Player.Collider)
             {
+                if (_inputtodo.TryFindAction("AbilityImproverInteraction", out _inputaction) == true)
+                {
+                    _inputaction.performed -= AbilityImproverInteractionInputAction_performed;
+                    _inputaction.performed += AbilityImproverInteractionInputAction_performed;
+                    _inputaction.Enable();
+                }
                 _textpressytoshow.SetActive(true);
                 _firsttimesee = true;
             }
