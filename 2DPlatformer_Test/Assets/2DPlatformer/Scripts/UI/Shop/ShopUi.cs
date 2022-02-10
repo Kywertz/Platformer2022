@@ -91,9 +91,9 @@ namespace GSGD2.Gameplay
 
             if (_isShopOpen == false)
             {
+                EventSystem.current.SetSelectedGameObject(_buttonFocus.gameObject);
                 _shop.SetActive(true);
                 _text.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(_buttonFocus.gameObject);
                 _isShopOpen = true;
                 _cubeController.gameObject.SetActive(false);
             }
