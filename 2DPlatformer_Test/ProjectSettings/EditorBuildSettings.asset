@@ -18,14 +18,14 @@ EditorBuildSettings:
     path: Assets/2DPlatformer/Scenes/OptionsMenu.unity
     guid: 2a557c89aa802fa44ae5688fff9ed95d
   - enabled: 1
+    path: Assets/2DPlatformer/Scenes/GameplayZoo.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/2DPlatformer/Scenes/Credits.unity
     guid: fd26b62db89682c488a46070cc50a7b8
   - enabled: 0
     path: Assets/2DPlatformer/Scenes/SelectLevel.unity
     guid: 6e113f8ab318ef1488aef3a53d909246
-  - enabled: 0
-    path: Assets/2DPlatformer/Scenes/GameplayZoo.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/2DPlatformer/Scenes/GameplayTestLD01.unity
     guid: 6d3fba86564e9b7489774d8df5b95407
