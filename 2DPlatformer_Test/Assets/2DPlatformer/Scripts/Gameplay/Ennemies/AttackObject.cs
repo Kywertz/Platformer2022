@@ -13,6 +13,19 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private ParticleSystem _ParticleSystem = null;
 
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other == LevelReferences.Instance.Player.Collider)
+            {
+                return;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
         public void DestroyMePlease()
         {
             _lebool = true;

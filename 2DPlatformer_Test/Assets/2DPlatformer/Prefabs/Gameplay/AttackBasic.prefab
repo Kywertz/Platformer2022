@@ -344,7 +344,7 @@ MonoBehaviour:
   _ignorePlayer: 1
   _giveDOT: 0
   _DOTDamage:
-    _damageValue: 1
+    _damageValue: 0
     _bump:
       enabled: 1
       _maximumAllowedForces: 1

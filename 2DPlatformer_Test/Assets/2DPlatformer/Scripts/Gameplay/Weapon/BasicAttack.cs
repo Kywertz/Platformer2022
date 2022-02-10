@@ -18,7 +18,7 @@ namespace GSGD2.Gameplay
         private GameObject _offset = null;
 
 
-        private float _cooldown = 1f;
+        private float _cooldown = 0.2f;
 
         [SerializeField]
         private float _bigfloat = 2f;
@@ -80,7 +80,7 @@ namespace GSGD2.Gameplay
             if (_cooldown < 0)
             {
                 _startdown = false;
-                _cooldown = 1f;
+                _cooldown = 0.2f;
             }
         }
 
