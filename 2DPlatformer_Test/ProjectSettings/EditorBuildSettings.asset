@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/2DPlatformer/Scenes/MainMenu.unity
     guid: 357a21f5e581f2b4cb5caaeb254a94b2
   - enabled: 1
+    path: Assets/2DPlatformer/Scenes/OptionsMenu.unity
+    guid: 2a557c89aa802fa44ae5688fff9ed95d
+  - enabled: 1
+    path: Assets/2DPlatformer/Scenes/Credits.unity
+    guid: fd26b62db89682c488a46070cc50a7b8
+  - enabled: 1
     path: Assets/2DPlatformer/Scenes/LevelArtMap.unity
     guid: 2caba015c1b338645ae5078c78b45cf2
   - enabled: 0

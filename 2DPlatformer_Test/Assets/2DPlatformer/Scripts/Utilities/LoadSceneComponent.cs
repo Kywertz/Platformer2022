@@ -35,7 +35,7 @@ namespace GSGD2.Utilities
 		public void LoadScene(string name, LoadSceneMode mode = LoadSceneMode.Single)
 		{
 			SceneManager.LoadSceneAsync(name, mode);
-			LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._clickOnButton);
+			
 		}
 	}
 

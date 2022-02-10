@@ -13,13 +13,13 @@
 	{
         private void Awake()
         {
-			LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._MenuTheme);
+			
 		}
 
         public void Quit()
 		{
 #if UNITY_EDITOR
-			LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._clickOnButton);
+			
 			EditorApplication.isPlaying = false;
 #else
 			Application.Quit();
