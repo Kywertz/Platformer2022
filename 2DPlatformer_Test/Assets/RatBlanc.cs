@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RatBlanc : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _ratblancProjectile = null;
+   
 
     private void OnTriggerEnter(Collider other)
     {

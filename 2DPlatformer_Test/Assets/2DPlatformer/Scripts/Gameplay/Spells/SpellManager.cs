@@ -23,7 +23,7 @@ namespace GSGD2.Gameplay
 
         public void AddSpell(int value)
         {
-            if(_utilisationsofspells < _maximumofusingspells && _utilisationsofspells != _maximumofusingspells && _currentspell != 5)
+            if(_currentspell != 5)
             {
                 _currentspell += value ;
                  SpellAdded?.Invoke(this, _currentspell);

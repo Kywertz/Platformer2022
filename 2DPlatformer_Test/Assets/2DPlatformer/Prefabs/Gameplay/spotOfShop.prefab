@@ -47,12 +47,10 @@ MonoBehaviour:
   _inputActionmap: {fileID: 11400000, guid: e1d6add415fc4e24a887050c5ba1909f, type: 2}
   _shop: {fileID: 0}
   _text: {fileID: 7720141039977835280}
-  _pickupCommand: {fileID: 11400000, guid: d714caed468a7c74d885cc43603043f4, type: 2}
-  _loothud: {fileID: 0}
   _buttonFocus: {fileID: 0}
-  _childrenPrefab: {fileID: 0}
+  _cubeController: {fileID: 0}
   _upgradetaken: 0
-  _projectilelauncher: {fileID: 0}
+  _fluteswitcher: {fileID: 0}
 --- !u!1 &1855725083947985722
 GameObject:
   m_ObjectHideFlags: 0

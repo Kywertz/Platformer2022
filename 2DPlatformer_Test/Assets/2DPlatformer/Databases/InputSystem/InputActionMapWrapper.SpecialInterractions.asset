@@ -58,3 +58,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: InputActionY
       m_Flags: 0
+    - m_Name: 
+      m_Id: fdf5a653-534e-4f6a-a8ac-c42ce62422ef
+      m_Path: <Keyboard>/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: InputActionY
+      m_Flags: 0

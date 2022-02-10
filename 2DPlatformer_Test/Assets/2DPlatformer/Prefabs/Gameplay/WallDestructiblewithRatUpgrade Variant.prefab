@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2709147023223146544, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4416393604516653113, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
       propertyPath: m_Name
       value: WallDestructiblewithRatUpgrade Variant
@@ -75,6 +79,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4416393604516653113, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
   m_PrefabInstance: {fileID: 3445376364285873533}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1340455415396726862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4416393604779554099, guid: 745aafe747114eb4d98af5c9bc67a1ef, type: 3}
+  m_PrefabInstance: {fileID: 3445376364285873533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1077214771719589329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340455415117047108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1340530870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,4 +109,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d3ae911884d9145b9b7d4c368e36aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ratblancProjectile: {fileID: 5977267829128941260, guid: de651ed452dec6641b1e809aeb202158, type: 3}
+--- !u!64 &8974466562660568632
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340455415117047108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!64 &3000835400894819020
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340455415396726862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

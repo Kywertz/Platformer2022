@@ -62,10 +62,10 @@ namespace GSGD2.Gameplay
         {
             LevelReferences.Instance.PlayerStart.AddCheckpoint(this);
 
-            _physicsTriggerEvent._onTriggerEnter.RemoveListener(OnPhysicsTriggerEventEnter);
-            _physicsTriggerEvent._onTriggerEnter.AddListener(OnPhysicsTriggerEventEnter);
-            _physicsTriggerEvent._onTriggerExit.RemoveListener(OnPhysicsTriggerEventExit);
-            _physicsTriggerEvent._onTriggerExit.AddListener(OnPhysicsTriggerEventExit);
+            //_physicsTriggerEvent._onTriggerEnter.RemoveListener(OnPhysicsTriggerEventEnter);
+            //_physicsTriggerEvent._onTriggerEnter.AddListener(OnPhysicsTriggerEventEnter);
+            //_physicsTriggerEvent._onTriggerExit.RemoveListener(OnPhysicsTriggerEventExit);
+            //_physicsTriggerEvent._onTriggerExit.AddListener(OnPhysicsTriggerEventExit);
 
             _checkpointTriggered -= OnCheckpointTriggered;
             _checkpointTriggered += OnCheckpointTriggered;
@@ -81,8 +81,8 @@ namespace GSGD2.Gameplay
 
         private void OnDisable()
         {
-            _physicsTriggerEvent._onTriggerEnter.RemoveListener(OnPhysicsTriggerEventEnter);
-            _physicsTriggerEvent._onTriggerExit.RemoveListener(OnPhysicsTriggerEventExit);
+            //_physicsTriggerEvent._onTriggerEnter.RemoveListener(OnPhysicsTriggerEventEnter);
+            //_physicsTriggerEvent._onTriggerExit.RemoveListener(OnPhysicsTriggerEventExit);
 
             _checkpointTriggered -= OnCheckpointTriggered;
 
@@ -95,18 +95,18 @@ namespace GSGD2.Gameplay
             _abilityImproverInteractionInputAction.Disable();
         }
 
-        private void OnPhysicsTriggerEventEnter(PhysicsTriggerEvent physicsTriggerEvent, Collider other)
-        {
-            CubeController concreteOther = other.GetComponentInParent<CubeController>();
-            if (concreteOther != null)
-            {
-                _canvas.gameObject.SetActive(true);
-                _isentered = true;
-            }
+        //private void OnPhysicsTriggerEventEnter(PhysicsTriggerEvent physicsTriggerEvent, Collider other)
+        //{
+        //    CubeController concreteOther = other.GetComponentInParent<CubeController>();
+        //    if (concreteOther != null)
+        //    {
+        //        _canvas.gameObject.SetActive(true);
+        //        _isentered = true;
+        //    }
 
-        }
+        //}
 
-        
+
 
         private void LifeRefill()
         {
@@ -118,36 +118,68 @@ namespace GSGD2.Gameplay
             }
         }
 
-        private void OnPhysicsTriggerEventExit(PhysicsTriggerEvent physicsTriggerEvent, Collider other)
+        private void OnTriggerEnter(Collider other)
         {
-            CubeController concreteOther = other.GetComponentInParent<CubeController>();
-            if (concreteOther != null)
+
+
+            print("player");
+            _isentered = true;
+            _canvas.gameObject.SetActive(true);
+
+            print("Work");
+            LevelReferences.Instance.PlayerStart.UpdateLastCheckpoint(this);
+            _checkpointTriggered.Invoke(this, _hasBeenTriggeredYet == true ? EventType.CheckpointPassed : EventType.FirstTimeReachedCheckpoint);
+            _hasBeenTriggeredYet = true;
+            LevelReferences.Instance.SpellManager.ReloadSpells();
+            LifeRefill();
+
+            for (int i = 0; i < _ennemiesManager._ennemies.Length; i++)
             {
-                _checkpointTriggered.Invoke(this, EventType.CheckpointExited);
+                _ennemiesManager._ennemies[i].ReactiveUs();
+
             }
+
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+
+
+            _checkpointTriggered.Invoke(this, EventType.CheckpointExited);
             _canvas.gameObject.SetActive(false);
             _isentered = false;
 
         }
 
+        //private void OnPhysicsTriggerEventExit(PhysicsTriggerEvent physicsTriggerEvent, Collider other)
+        //{
+        //    CubeController concreteOther = other.GetComponentInParent<CubeController>();
+        //    if (concreteOther != null)
+        //    {
+        //        _checkpointTriggered.Invoke(this, EventType.CheckpointExited);
+        //        _canvas.gameObject.SetActive(false);
+        //        _isentered = false;
+        //    }
+
+        //}
+
         private void AbilityImproverInteractionInputAction_performed(InputAction.CallbackContext obj)
         {
-            print("Work");
-            if (_isentered == true)
-            {
-                LevelReferences.Instance.PlayerStart.UpdateLastCheckpoint(this);
-                _checkpointTriggered.Invoke(this, _hasBeenTriggeredYet == true ? EventType.CheckpointPassed : EventType.FirstTimeReachedCheckpoint);
-                _hasBeenTriggeredYet = true;
-                LevelReferences.Instance.SpellManager.ReloadSpells();
-                LifeRefill();
 
-               for (int i = 0; i < _ennemiesManager._ennemies.Length; i++)
-                {
-                    _ennemiesManager._ennemies[i].ReactiveUs();
-                    
-                }
+            //print("Work");
+            //LevelReferences.Instance.PlayerStart.UpdateLastCheckpoint(this);
+            //_checkpointTriggered.Invoke(this, _hasBeenTriggeredYet == true ? EventType.CheckpointPassed : EventType.FirstTimeReachedCheckpoint);
+            //_hasBeenTriggeredYet = true;
+            //LevelReferences.Instance.SpellManager.ReloadSpells();
+            //LifeRefill();
 
-            }
+            //for (int i = 0; i < _ennemiesManager._ennemies.Length; i++)
+            //{
+            //    _ennemiesManager._ennemies[i].ReactiveUs();
+
+            //}
+
+
         }
 
         private void OnCheckpointTriggered(Checkpoint checkpoint, EventType eventType)

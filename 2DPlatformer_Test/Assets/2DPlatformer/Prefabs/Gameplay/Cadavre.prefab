@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9163760975743099214}
   - component: {fileID: 744650769654616892}
   - component: {fileID: 6957683901695868587}
+  - component: {fileID: 4711577975994478863}
   m_Layer: 0
   m_Name: Cadavre
   m_TagString: Untagged
@@ -300,6 +301,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204752334527721972}
   m_Mesh: {fileID: 0}
+--- !u!114 &4711577975994478863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204752334527721972}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558740507da4a3843b14c2e448728bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 1345537964801141368}
+  _actiontoinput: {fileID: 11400000, guid: e1d6add415fc4e24a887050c5ba1909f, type: 2}
 --- !u!1 &1345537964801141368
 GameObject:
   m_ObjectHideFlags: 0
