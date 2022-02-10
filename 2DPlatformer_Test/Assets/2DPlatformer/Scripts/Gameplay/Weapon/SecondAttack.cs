@@ -25,11 +25,19 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            if (_inputMapWrapperAttack.TryFindAction("SecondAttackDefaultInput", out _inputaction, true))
+            if (Time.timeScale == 1)
             {
-                _inputaction.performed -= SecondAttack_Performed;
-                _inputaction.performed += SecondAttack_Performed;
+                if (_inputMapWrapperAttack.TryFindAction("SecondAttackDefaultInput", out _inputaction, true))
+                {
+                    _inputaction.performed -= SecondAttack_Performed;
+                    _inputaction.performed += SecondAttack_Performed;
+                }
             }
+            //if (_inputMapWrapperAttack.TryFindAction("SecondAttackDefaultInput", out _inputaction, true))
+            //{
+            //    _inputaction.performed -= SecondAttack_Performed;
+            //    _inputaction.performed += SecondAttack_Performed;
+            //}
            
         }
 

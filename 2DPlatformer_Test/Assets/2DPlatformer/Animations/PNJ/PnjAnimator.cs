@@ -22,6 +22,7 @@ namespace GSGD2.Gameplay
         [SerializeField]
         private Ennemies _ennemie = null;
 
+       
 
         private bool _isdead = false;
 
@@ -47,9 +48,7 @@ namespace GSGD2.Gameplay
                 
                 _animator.SetTrigger("Attack");
                 LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._attackofennemies);
-                //_damageableoftheplayer.TakeDamage(_damage);
-               
-                //_damageableoftheplayer.TakeDamage();
+          
                 
                 _stopmoving = true;
             }
@@ -59,7 +58,7 @@ namespace GSGD2.Gameplay
         {
             if (other == LevelReferences.Instance.Player.Collider)
             {
-                //_damageDealer._ignorePlayer = true;
+             
                 _animator.SetTrigger("EndAttack");
                 _stopmoving = false;
             }
@@ -67,6 +66,7 @@ namespace GSGD2.Gameplay
 
         public void Dead()
         {
+
             
             _animator.SetTrigger("Dead");
             LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._deathOfEnnemies);

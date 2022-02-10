@@ -172,6 +172,7 @@ namespace GSGD2.Gameplay
 
         public void SpawnCadavre()
         {
+            //_damageDealer._ignorePlayer = true;
             Instantiate(_cadavretospawn, _offset.transform.position, _offset.transform.rotation);
             gameObject.SetActive(false);
             _isdead = true;

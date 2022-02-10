@@ -32,15 +32,28 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            if (_InputActionMapWrapper.TryFindAction("SecondAttackDefaultInput", out _shootInputAction, true))
+            if (Time.timeScale == 1)
             {
-                _shootInputAction.performed -= _inputAction_performed;
-                _shootInputAction.performed += _inputAction_performed;
+                if (_InputActionMapWrapper.TryFindAction("SecondAttackDefaultInput", out _shootInputAction, true))
+                {
+                    _shootInputAction.performed -= _inputAction_performed;
+                    _shootInputAction.performed += _inputAction_performed;
+                }
+
+
+                _InputActionMapWrapper.TryFindAction("SecondAttackVerticalDirection", out _verticalInputAction, true);
+                _InputActionMapWrapper.TryFindAction("SecondAttackHorizontalDirection", out _horizontalInputAction, true);
             }
 
+            //if (_InputActionMapWrapper.TryFindAction("SecondAttackDefaultInput", out _shootInputAction, true))
+            //{
+            //    _shootInputAction.performed -= _inputAction_performed;
+            //    _shootInputAction.performed += _inputAction_performed;
+            //}
 
-            _InputActionMapWrapper.TryFindAction("SecondAttackVerticalDirection", out _verticalInputAction, true);
-            _InputActionMapWrapper.TryFindAction("SecondAttackHorizontalDirection", out _horizontalInputAction, true);
+
+            //_InputActionMapWrapper.TryFindAction("SecondAttackVerticalDirection", out _verticalInputAction, true);
+            //_InputActionMapWrapper.TryFindAction("SecondAttackHorizontalDirection", out _horizontalInputAction, true);
 
 
         }

@@ -23,12 +23,21 @@ namespace GSGD2.Gameplay
 
         private void OnEnable()
         {
-            if (_inputActionmap.TryFindAction("HealSpell", out InputAction _inputaction) == true)
+            if (Time.timeScale == 1)
             {
-                _inputaction.performed -= PlayerControllerHealSpellPerformed;
-                _inputaction.performed += PlayerControllerHealSpellPerformed;
+                if (_inputActionmap.TryFindAction("HealSpell", out InputAction _inputaction) == true)
+                {
+                    _inputaction.performed -= PlayerControllerHealSpellPerformed;
+                    _inputaction.performed += PlayerControllerHealSpellPerformed;
+                }
+                _inputaction.Enable();
             }
-            _inputaction.Enable();
+            //if (_inputActionmap.TryFindAction("HealSpell", out InputAction _inputaction) == true)
+            //{
+            //    _inputaction.performed -= PlayerControllerHealSpellPerformed;
+            //    _inputaction.performed += PlayerControllerHealSpellPerformed;
+            //}
+            //_inputaction.Enable();
         }
 
         private void OnDisable()
@@ -41,7 +50,7 @@ namespace GSGD2.Gameplay
         {
             if (LevelReferences.Instance.PlayerReferences.TryGetPlayerDamageable(out PlayerDamageable playerDamageable) == true)
             {
-
+                
                 playerDamageable.RestoreHealth(_healthToChange);
                 _healVFX.SetActive(true);
                 _vfxstarted = true;
@@ -51,9 +60,15 @@ namespace GSGD2.Gameplay
         private void PlayerControllerHealSpellPerformed(/*PlayerController sender,*/ InputAction.CallbackContext obj)
         {
 
-            Jsp();
-            LevelReferences.Instance.SpellManager.UsingSpell(1);
-            LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._heal);
+            //Jsp();
+            if (LevelReferences.Instance.SpellManager._currentspell > 0)
+            {
+                Jsp();
+                LevelReferences.Instance.SpellManager.UsingSpell(1);
+                LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._heal);
+            }
+            //LevelReferences.Instance.SpellManager.UsingSpell(1);
+            //LevelReferences.Instance.SoundManager.PlaySound(LevelReferences.Instance.SoundManager._heal);
         }
 
         private void Update()

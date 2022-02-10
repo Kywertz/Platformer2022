@@ -43,13 +43,23 @@ namespace GSGD2.Gameplay
 
         public void UsingSpell(int value)
         {
-            if (_currentspell > 0 && _currentspell != 0)
+            if (Time.timeScale == 1)
             {
-                _currentspell -= value;
-                SpellAdded?.Invoke(this, _currentspell);
-                _utilisationsofspells ++;
-                _forground.fillAmount -= 0.2f;
+                if (_currentspell > 0 && _currentspell != 0)
+                {
+                    _currentspell -= value;
+                    SpellAdded?.Invoke(this, _currentspell);
+                    _utilisationsofspells++;
+                    _forground.fillAmount -= 0.2f;
+                }
             }
+            //if (_currentspell > 0 && _currentspell != 0)
+            //{
+            //    _currentspell -= value;
+            //    SpellAdded?.Invoke(this, _currentspell);
+            //    _utilisationsofspells ++;
+            //    _forground.fillAmount -= 0.2f;
+            //}
         }
 
        
